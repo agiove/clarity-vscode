@@ -1,0 +1,31 @@
+{
+    "name": "Project Clarity",
+	"version": "1.0.0",
+    "publisher": "agiove",
+	"engines": { "vscode": "^1.0.0" },
+	"license": "MIT",
+	"displayName": "Project Clarity snippets",
+    "description": "A collection of snippets for the Project Clarity - https://vmware.github.io/clarity/",
+    "categories": ["Snippets"],
+	"keywords": ["vmware","clarity","angular"],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "html",
+                "path": "./snippets/html.json"
+            }
+        ]
+    },
+	"icon": "images/clarity-logo.svg",
+	"galleryBanner": {
+        "color": "#002538",
+        "theme": "dark"
+    },
+	"repository": {
+        "type": "git",
+        "url": "https://github.com/agiove/clarity-vscode.git"
+    },
+	"bugs": {
+        "url": "https://github.com/agiove/clarity-vscode/issues"
+    }
+}

@@ -1,0 +1,205 @@
+{
+    "Project Clarity": 
+    [
+        {
+            "prefix": "clr-alert",
+            "body": [
+                "<clr-alert [clrAlertType]=\"'alert-${1:type}'\">",
+                "   <button type=\"button\" class=\"close\" aria-label=\"Close\">",
+                "       <clr-icon aria-hidden=\"true\" shape=\"close\"></clr-icon>",
+                "   </button>",
+                "   <div class=\"alert-item\">",
+                "       <span class=\"alert-text\">",
+                "           ${2:Alert message}",
+                "       </span>",
+                "   </div>",
+                "</clr-alert>"
+            ],
+            "description": "Clarity Alert"
+        },
+
+        {
+            "prefix": "clr-card",
+            "body": [
+                "<div class=\"card\">",
+                "   <div class=\"card-block\">",
+                "       <h3 class=\"card-title\">${1:Title}</h3>",
+                "       <p class=\"card-text\">",
+                "           ${2:Content}",
+                "       </p>",
+                "   </div>",
+                "   <div class=\"card-footer\">",
+                "       <a href=\"#\" class=\"btn btn-sm btn-link\">${3:Action}</a>",
+                "   </div>",
+                "</div>"
+            ],
+            "description": "Clarity Card"
+        },
+
+        {
+            "prefix": "clr-datagrid",
+            "body": [
+                "<clr-datagrid>",
+                "    <clr-dg-column [clrDgField]=\"'${1:col1Prop}'\">${2:Col1Name}</clr-dg-column>",
+                "    <clr-dg-column [clrDgField]=\"'${3:col2Prop}'\">${4:Col2Name}</clr-dg-column>",
+                "    <clr-dg-column [clrDgField]=\"'${5:col3Prop}'\">${6:Col3Name}</clr-dg-column>",
+                "    <clr-dg-column [clrDgField]=\"'${7:col4Prop}'\">${8:Col4Name}</clr-dg-column>",
+                "",
+                "    <clr-dg-row *clrDgItems=\"let ${9:item} of ${10:items}\">",
+                "        <clr-dg-cell>{{${9:item}.${1:col1Prop}}}</clr-dg-cell>",
+                "        <clr-dg-cell>{{${9:item}.${3:col2Prop}}}</clr-dg-cell>",
+                "        <clr-dg-cell>{{${9:item}.${5:col3Prop}}}</clr-dg-cell>",
+                "        <clr-dg-cell>{{${9:item}.${7:col4Prop}}}</clr-dg-cell>",
+                "    </clr-dg-row>",
+                "",
+                "    <clr-dg-footer>{{${10:items}.length}} ${11:items}</clr-dg-footer>",
+                "</clr-datagrid>"
+            ],
+            "description": "Clarity Datagrid"
+        },
+
+		{
+			"prefix": "clr-dropdown",
+			"body": [
+				"<clr-dropdown [clrMenuPosition]=\"'bottom-left'\">",
+				"	<button class=\"btn btn-outline-primary\" clrDropdownToggle>",
+				"		${1:Button title}",
+				"		<clr-icon shape=\"caret down\"></clr-icon>",
+				"	</button>",
+				"	<div class=\"dropdown-menu\">",
+				"		<label class=\"dropdown-header\">${2:Dropdown header}</label>",
+				"		<a href=\"#\" clrDropdownItem>${3:Action 1}</a>",
+				"		<a href=\"#\" clrDropdownItem>${4:Action 2}</a>",
+				"		<div class=\"dropdown-divider\"></div>",
+				"		<a href=\"#\" clrDropdownItem>${5:Action 3}</a>",
+				"		<a href=\"#\" clrDropdownItem>${6:Action 4}</a>",
+				"	</div>",
+				"</clr-dropdown>"
+			],
+			"description": "Clarity Dropdown"
+		},
+
+		{
+			"prefix": "clr-form",
+			"body": [
+				"<form>",
+				"	<section class=\"form-block\">",
+				"		<label>${1:Section title}</label>",
+				"		${3}",
+				"		<button type=\"submit\" class=\"btn btn-primary\">${2:Button}</button>",
+				"		<button class=\"btn btn-secondary\">Cancel</button>",
+				"	</section>",
+				"</form>"
+			],
+			"description": "Clarity Form"
+		},
+
+		{
+			"prefix": "clr-login-form",
+			"body": [
+				"<div class=\"login-wrapper\">",
+				"    <form class=\"login\">",
+				"        <label class=\"title\">",
+				"            ${1:Company Name<span class=\"trademark\">&#8482;</span>}",
+				"            ${2:Product Name&#174;}",
+				"        </label>",
+				"        <div class=\"login-group\">",
+				"            <div class=\"auth-source select\">",
+				"                <select id=\"login-auth-source-1\">",
+				"                    <option>Local Users</option>",
+				"                    <option>Administrator</option>",
+				"                </select>",
+				"            </div>",
+				"            <input class=\"username\" type=\"text\" id=\"login_username\" placeholder=\"Username\">",
+				"            <input class=\"password\" type=\"password\" id=\"login_password\" placeholder=\"Password\">",
+				"            <div class=\"checkbox\">",
+				"                <input type=\"checkbox\" id=\"rememberme\">",
+				"                <label for=\"rememberme\">",
+				"                    Remember me",
+				"                </label>",
+				"            </div>",
+				"            <button type=\"submit\" class=\"btn btn-primary\">LOG IN</button>",
+				"            <a href=\"#\" class=\"signup\">Sign up for an account</a>",
+				"        </div>",
+				"    </form>",
+				"</div>"
+			],
+			"description": "Clarity Login Form"
+		},
+
+		{
+			"prefix": "clr-modal",
+			"body": [
+				"<clr-modal [(clrModalOpen)]=\"${1:opened}\">",
+				"    <h3 class=\"modal-title\">${2:Title}</h3>",
+				"    <div class=\"modal-body\">",
+				"        ${3}",
+				"    </div>",
+				"    <div class=\"modal-footer\">",
+				"        <button type=\"button\" class=\"btn btn-outline\" (click)=\"${1:opened} = false\">Cancel</button>",
+				"        <button type=\"button\" class=\"btn btn-primary\" (click)=\"${1:opened} = false\">Ok</button>",
+				"    </div>",
+				"</clr-modal>"
+			],
+			"description": "Clarity Modal"
+		},
+
+		{
+			"prefix": "clr-stack-view",
+			"body": [
+				"<clr-stack-view>",
+				"    <clr-stack-header>${1:Stack Title}</clr-stack-header>",
+				"",
+				"    <clr-stack-block>",
+				"        <clr-stack-label>Label 1</clr-stack-label>",
+				"        <clr-stack-content>Content 1</clr-stack-content>",
+				"    </clr-stack-block>",
+				"",
+				"    <clr-stack-block [clrSbExpanded]=\"true\">",
+				"        <clr-stack-label>Label 2</clr-stack-label>",
+				"        <clr-stack-content>Content 2</clr-stack-content>",
+				"        <clr-stack-block>",
+				"            <clr-stack-label>Sub-label 1</clr-stack-label>",
+				"            <clr-stack-content>Sub-content 1</clr-stack-content>",
+				"        </clr-stack-block>",
+				"        <clr-stack-block>",
+				"            <clr-stack-label>Sub-label 2</clr-stack-label>",
+				"            <clr-stack-content>Sub-content 2</clr-stack-content>",
+				"        </clr-stack-block>",
+				"        <clr-stack-block>",
+				"            <clr-stack-label>Sub-label 3</clr-stack-label>",
+				"            <clr-stack-content>Sub-content 3</clr-stack-content>",
+				"        </clr-stack-block>",
+				"    </clr-stack-block>",
+				"",
+				"</clr-stack-view>"
+			],
+			"description": "Clarity Stack view"
+		},
+
+		{
+			"prefix": "clr-tabs",
+			"body": [
+				"<clr-tabs (clrTabsCurrentTabLinkChanged)=\"onTabSelected(\$event)\"",
+				"			(clrTabsCurrentTabIndexChanged)=\"onTabIndexChanged(\$event)\"",
+				"			(clrTabsCurrentTabContentChanged)=\"onTabContentActivated(\$event)\">",
+				"	<clr-tab-link [clrTabLinkId]=\"'link1'\" [clrTabLinkActive]=\"true\">${1:Title1}</clr-tab-link>",
+				"	<clr-tab-link [clrTabLinkId]=\"'link2'\">${2:Title2}</clr-tab-link>",
+				"	<clr-tab-link [clrTabLinkId]=\"'link3'\">${3:Title3}</clr-tab-link>",
+				"",
+				"	<clr-tab-content [clrTabContentId]=\"'content1'\" [clrTabContentActive]=\"true\">",
+				"		${4:Content1}",
+				"	</clr-tab-content>",
+				"	<clr-tab-content [clrTabContentId]=\"'content2'\">",
+				"		${5:Content2}",
+				"	</clr-tab-content>",
+				"	<clr-tab-content [clrTabContentId]=\"'content3'\">",
+				"		${6:Content3}",
+				"	</clr-tab-content>",
+				"</clr-tabs>"
+			],
+			"description": "Clarity Tabs"
+		},
+		
+    ]
+}
