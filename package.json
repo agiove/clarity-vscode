@@ -1,13 +1,13 @@
 {
     "name": "clarity-vscode",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "publisher": "agiove",
     "engines": {
         "vscode": "^1.0.0"
     },
     "license": "MIT",
-    "displayName": "Clarity vscode snippets",
-    "description": "A collection of vscode snippets for the Project Clarity - https://vmware.github.io/clarity/",
+    "displayName": "Clarity snippets",
+    "description": "A collection of snippets for the Project Clarity - https://vmware.github.io/clarity/",
     "categories": [
         "Snippets"
     ],
