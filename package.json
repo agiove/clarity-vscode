@@ -16,7 +16,7 @@
             }
         ]
     },
-	"icon": "images/clarity-logo.svg",
+	"icon": "images/clarity-logo.png",
 	"galleryBanner": {
         "color": "#002538",
         "theme": "dark"
