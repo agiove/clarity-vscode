@@ -1,5 +1,5 @@
 {
-    "Project Clarity": 
+    "Clarity vscode": 
     [
         {
             "prefix": "clr-alert",
@@ -199,7 +199,7 @@
 				"</clr-tabs>"
 			],
 			"description": "Clarity Tabs"
-		},
+		}
 		
     ]
 }
