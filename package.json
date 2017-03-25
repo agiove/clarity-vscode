@@ -1,5 +1,5 @@
 {
-    "name": "Clarity vscode",
+    "name": "clarity-vscode",
 	"version": "1.0.0",
     "publisher": "agiove",
 	"engines": { "vscode": "^1.0.0" },
