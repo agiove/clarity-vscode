@@ -3,6 +3,7 @@
 Prefix for this snippets  ```clr-```
 This is the list of supported components:
 * [Alerts](https://vmware.github.io/clarity/documentation/alerts) ```clr-alert```
+* [Button group](https://vmware.github.io/clarity/documentation/button-group) ```clr-button-group```
 * [Cards](https://vmware.github.io/clarity/documentation/cards) ```clr-card```
 * [Datagrid](https://vmware.github.io/clarity/documentation/datagrid) ```clr-datagrid```
 * [Dropdowns](https://vmware.github.io/clarity/documentation/dropdowns) ```clr-dropdown```

@@ -18,6 +18,20 @@
             "description": "Clarity Alert"
         },
 
+		{
+            "prefix": "clr-button-group",
+            "body": [
+                "<clr-button-group class=\"btn-primary\">",
+        		"	<clr-button>${1:Button1}</clr-button>",
+        		"	<clr-button>${2:Button2}</clr-button>",
+        		"	<clr-button [clrInMenu]=\"true\">${3:OverflowButton1}</clr-button>",
+        		"	<clr-button [clrInMenu]=\"true\">${4:OverflowButton2}</clr-button>",
+        		"	<clr-button [clrInMenu]=\"true\">${5:OverflowButton3}</clr-button>",
+    			"</clr-button-group>"
+            ],
+            "description": "Clarity Button Group"
+        },
+
         {
             "prefix": "clr-card",
             "body": [
