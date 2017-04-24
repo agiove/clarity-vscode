@@ -1,4 +1,13 @@
-### HTML Snippets for Project Clarity - https://vmware.github.io/clarity/documentation
+# clarity-vscode README
+
+Template support for the Project Clarity - https://vmware.github.io/clarity/documentation
+
+## Features
+
+- Hover support for template tags with a link to the official doc
+- Predefined HTML/template snippets for the Project Clarity
+
+### Available snippets
 
 Prefix for this snippets  ```clr-```
 This is the list of supported components:
