@@ -4,7 +4,7 @@ Template support for the Project Clarity - https://vmware.github.io/clarity/docu
 
 ## Features
 
-- Hover support for template tags with a link to the official doc
+- Hover support for template tags with input and output attributes, and the link to the official doc
 - Predefined HTML/template snippets for the Project Clarity
 
 ### Available snippets

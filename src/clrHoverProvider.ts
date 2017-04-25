@@ -1,6 +1,6 @@
 import { Hover, HoverProvider, Position, TextDocument, CancellationToken, MarkedString } from "vscode";
 import { clrTags } from "./clrTags";
-import { clrDocs } from "./clrDocs";
+import { ClrDocsUtil } from "./clrDocs";
 import { DefinitionInfo } from "./shared/DefinitionInfo";
 
 export class ClrHoverProvider implements HoverProvider {
@@ -14,15 +14,21 @@ export class ClrHoverProvider implements HoverProvider {
         console.log(lineText);
         console.log(word);
         */
-        if (!wordRange || !clrDocs.has(word)) {
+        let docsUtil = new ClrDocsUtil();
+
+        if (!wordRange || !docsUtil.hasDoc(word)) {
             return Promise.resolve(null);
         }
 
         return new Promise<MarkedString[]>((resolve, reject) => {
-            let definition: DefinitionInfo = clrDocs.get(word);
+            let definition: DefinitionInfo = docsUtil.getDoc(word);
             let hoverTexts: MarkedString[] = [];
             hoverTexts.push({ language: 'html', value: definition.tag });
             hoverTexts.push(definition.info);
+            if (definition.inputs.length > 0) 
+                hoverTexts.push("Input: _" + definition.getInputsStr() + "_");
+            if (definition.outputs.length > 0) 
+                hoverTexts.push("Output: _" + definition.getOutputsStr() + "_");
             hoverTexts.push(definition.link);
             return resolve(hoverTexts);
         });
