@@ -1,47 +1,69 @@
-import { Hover, HoverProvider, Position, TextDocument, CancellationToken, MarkedString } from "vscode";
-import { clrTags } from "./clrTags";
 import { ClrDocsUtil } from "./clrDocs";
 import { DefinitionInfo } from "./shared/DefinitionInfo";
+import {
+  CancellationToken,
+  Hover,
+  HoverProvider,
+  MarkdownString,
+  Position,
+  ProviderResult,
+  TextDocument,
+} from "vscode";
 
 export class ClrHoverProvider implements HoverProvider {
-
-    getDefinition(document: TextDocument, position: Position): Promise<MarkedString[]> {
-        let wordRange = document.getWordRangeAtPosition(position);
-        let lineText = document.lineAt(position.line).text;
-        let word = wordRange ? document.getText(wordRange) : '';
-        /*
+  getDefinition(
+    document: TextDocument,
+    position: Position
+  ): Promise<MarkdownString[]> {
+    const wordRange = document.getWordRangeAtPosition(position);
+    const word = wordRange ? document.getText(wordRange) : "";
+    /*
         console.log(wordRange);
         console.log(lineText);
         console.log(word);
         */
-        let docsUtil = new ClrDocsUtil();
+    const docsUtil = new ClrDocsUtil();
 
-        if (!wordRange || !docsUtil.hasDoc(word)) {
-            return Promise.resolve(null);
-        }
-
-        return new Promise<MarkedString[]>((resolve, reject) => {
-            let definition: DefinitionInfo = docsUtil.getDoc(word);
-            let hoverTexts: MarkedString[] = [];
-            hoverTexts.push({ language: 'html', value: definition.tag });
-            hoverTexts.push(definition.info);
-            if (definition.inputs.length > 0) 
-                hoverTexts.push("Input: _" + definition.getInputsStr() + "_");
-            if (definition.outputs.length > 0) 
-                hoverTexts.push("Output: _" + definition.getOutputsStr() + "_");
-            hoverTexts.push(definition.link);
-            return resolve(hoverTexts);
-        });
+    if (!wordRange || !docsUtil.hasDoc(word)) {
+      return Promise.resolve(null);
     }
 
-    public provideHover(
-        document: TextDocument, position: Position, token: CancellationToken): Thenable<Hover> {
-            return this.getDefinition(document, position).then(definitionInfo => {
-                let hover = new Hover(definitionInfo);
-                return hover;
-            }, () => {
-                return null;
-            }
-        );    
-    }
+    return new Promise<MarkdownString[]>((resolve, reject) => {
+      const definition: DefinitionInfo = docsUtil.getDoc(word);
+
+      const hoverTexts: MarkdownString[] = [];
+
+      const doc = new MarkdownString()
+        .appendCodeblock(definition.tag, "html")
+        .appendMarkdown(definition.info);
+
+      if (definition.inputs.length > 0)
+        doc.appendMarkdown("\nInput: _" + definition.getInputsStr() + "_");
+
+      if (definition.outputs.length > 0)
+        doc.appendMarkdown("\nOutput: _" + definition.getOutputsStr() + "_");
+
+      doc.appendMarkdown("\n\n" + definition.link);
+
+      hoverTexts.push(doc);
+
+      return resolve(hoverTexts);
+    });
+  }
+
+  public provideHover(
+    document: TextDocument,
+    position: Position,
+    token: CancellationToken
+  ): ProviderResult<Hover> {
+    return this.getDefinition(document, position).then(
+      (definitionInfo) => {
+        const hover = new Hover(definitionInfo);
+        return hover;
+      },
+      () => {
+        return null;
+      }
+    );
+  }
 }
