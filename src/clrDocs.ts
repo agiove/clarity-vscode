@@ -12,7 +12,7 @@ import { clrWizardMeta } from "./metadata/wizard.metadata";
 
 import { DefinitionInfo } from "./shared/DefinitionInfo";
 
-const baseUrl = "https://vmware.github.io/clarity/documentation/";
+const baseUrl = "https://clarity.design/angular-components/";
 
 const clrAlertInfo =
   "An alert is a banner that uses text, color, and an icon to denote the severity of a message.";
