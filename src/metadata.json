@@ -1,0 +1,13 @@
+{
+  "clr-alert": "An alert is a banner that uses text, color, and an icon to denote the severity of a message.",
+  "clr-button-group": "Button groups are for creating collections of similar type action buttons.",
+  "clr-checkbox": "With checkboxes, users can select multiple options in a list of options.",
+  "clr-datagrid": "Datagrids are for organizing large volumes of data that users can scan, compare, and perform actions on.",
+  "clr-dropdown": "A dropdown menu lists actions that users can perform within an application or on a selected object.",
+  "clr-modal": "Modals provide information or help a user complete a task. They require the user to take an action to dismiss them.",
+  "clr-stack-view": "A stack view displays key/value pairs, which users can expand to show more detail.",
+  "clr-tabs": "Tabs divide content into separate views which users navigate between.",
+  "clr-tree-node": "A tree is a hierarchical component that shows the visual representation of the parent-child relationship between nodes.",
+  "clr-tooltip": "A tooltip provides a short description of a UI element.",
+  "clr-wizard": "A wizard presents a multi-step workflow that users perform in a recommended sequence."
+}
