@@ -1,3 +1,5 @@
+// This file contains descriptions of Clarity elements.
+// Key is the Clarity element name.
 {
   "clr-alert": "An alert is a banner that uses text, color, and an icon to denote the severity of a message.",
   "clr-button-group": "Button groups are for creating collections of similar type action buttons.",

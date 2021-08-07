@@ -46,11 +46,13 @@
     "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
+    "@angular/compiler-cli": "^12.2.0",
     "@clr/angular": "^12.0.1",
     "@clr/core": "^4.0.15",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.4.13",
     "@types/vscode": "^1.59.0",
+    "jsonc": "^2.0.0",
     "mocha": "^9.0.3",
     "typescript": "^4.3.5",
     "vscode-test": "^1.6.1"
