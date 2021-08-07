@@ -7,10 +7,10 @@
   },
   "license": "MIT",
   "displayName": "Clarity template support",
-  "description": "Template support for the Project Clarity - https://vmware.github.io/clarity/",
+  "description": "Template support for the Project Clarity - https://clarity.design",
   "categories": [
     "Snippets",
-    "Languages"
+    "Programming Languages"
   ],
   "keywords": [
     "vmware",
