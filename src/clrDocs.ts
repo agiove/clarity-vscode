@@ -142,12 +142,11 @@ export class ClrDocsUtil {
   getDoc(tag: string): DefinitionInfo {
     let definition: DefinitionInfo = docMap.get(tag);
 
-    if (!definition.lazy) return definition;
 
+    if (!definition.lazy) return definition;
     definition.lazy = false;
 
     let meta = definition.meta.members;
-
     Object.keys(meta).map((propertyName) => {
       let member = meta[propertyName];
       if (
@@ -160,8 +159,11 @@ export class ClrDocsUtil {
       ) {
         let attributeName = member[0].decorators[0].arguments[0];
         let exprName = member[0].decorators[0].expression.name;
-        if (exprName == "Input") definition.inputs.push(attributeName);
-        else if (exprName == "Output") definition.outputs.push(attributeName);
+        if (exprName == "Input") {
+          definition.inputs.push(attributeName);
+        } else if (exprName == "Output") {
+          definition.outputs.push(attributeName);
+        }
       }
     });
 

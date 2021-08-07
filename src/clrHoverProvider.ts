@@ -38,10 +38,10 @@ export class ClrHoverProvider implements HoverProvider {
         .appendMarkdown(definition.info);
 
       if (definition.inputs.length > 0)
-        doc.appendMarkdown("\nInput: _" + definition.getInputsStr() + "_");
+        doc.appendMarkdown("\n\nInput: _" + definition.getInputsStr() + "_");
 
       if (definition.outputs.length > 0)
-        doc.appendMarkdown("\nOutput: _" + definition.getOutputsStr() + "_");
+        doc.appendMarkdown("\n\nOutput: _" + definition.getOutputsStr() + "_");
 
       doc.appendMarkdown("\n\n" + definition.link);
 
