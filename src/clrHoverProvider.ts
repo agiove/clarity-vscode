@@ -1,5 +1,3 @@
-import { ClrDocs } from "./clrDocs";
-import { DefinitionInfo } from "./shared/DefinitionInfo";
 import {
   CancellationToken,
   Hover,
@@ -9,6 +7,8 @@ import {
   ProviderResult,
   TextDocument,
 } from "vscode";
+import { ClrDocs } from "./clrDocs";
+import { DefinitionInfo } from "./shared/DefinitionInfo";
 
 export class ClrHoverProvider implements HoverProvider {
   /**

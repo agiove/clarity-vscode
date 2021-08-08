@@ -1,4 +1,4 @@
-import { ClassMetadata, MetadataEntry } from "@angular/compiler-cli";
+import { ClassMetadata } from "@angular/compiler-cli";
 
 export class DefinitionInfo {
   constructor(

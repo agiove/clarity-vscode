@@ -1,24 +1,17 @@
+import {
+  ClassMetadata,
+  isClassMetadata,
+  isMetadataImportedSymbolReferenceExpression,
+  isMetadataSymbolicCallExpression,
+  MemberMetadata,
+  MetadataEntry,
+  MetadataObject,
+  MetadataSymbolicCallExpression,
+} from "@angular/compiler-cli";
 import * as clrMetadata from "@clr/angular/clr-angular.metadata.json";
 import { jsonc } from "jsonc";
 import * as path from "path";
 import { DefinitionInfo } from "./shared/DefinitionInfo";
-
-import {
-  ClassMetadata,
-  MetadataEntry,
-  isClassMetadata,
-  MetadataSymbolicExpression,
-  MetadataSymbolicIndexExpression,
-  MetadataSymbolicCallExpression,
-  MetadataValue,
-  isMetadataImportedSymbolReferenceExpression,
-  isMetadataSymbolicCallExpression,
-  isMetadataGlobalReferenceExpression,
-  MetadataObject,
-  MetadataMap,
-  MemberMetadata,
-  isMetadataSymbolicReferenceExpression,
-} from "@angular/compiler-cli";
 
 const baseUrl = "https://clarity.design/angular-components/";
 
