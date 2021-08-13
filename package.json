@@ -20,7 +20,7 @@
   "activationEvents": [
     "onLanguage:html"
   ],
-  "main": "./out/src/clrMain",
+  "main": "./out/src/extension",
   "contributes": {
     "snippets": [
       {

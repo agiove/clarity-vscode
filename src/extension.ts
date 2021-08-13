@@ -14,3 +14,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     )
   );
 }
+
+export function deactivate(): void {
+  return undefined;
+}
