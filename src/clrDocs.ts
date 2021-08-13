@@ -20,7 +20,7 @@ export class ClrDocs {
 
   private _descriptions: { [tag: string]: string } = {};
 
-  public async loadDocumentation() {
+  public async loadDocumentation(): Promise<ClrDocs> {
     this._descriptions = await this.getClrDescriptions();
 
     Object.keys(clrMetadata.metadata).forEach((nodeName: string) => {
@@ -67,41 +67,40 @@ export class ClrDocs {
   private getComponentNode(
     node: ClassMetadata
   ): MetadataSymbolicCallExpression {
-    if (
-      false &&
-      node.decorators
-        .filter(isMetadataSymbolicCallExpression)
-        .some((decorator) => (decorator.expression as any).name === "Component")
-    ) {
-      console.log("getComponentNode.1", node);
-      console.log(
-        "getComponentNode.2",
-        node.decorators
-          .filter(isMetadataSymbolicCallExpression)
-          .filter(
-            (decorator) =>
-              isMetadataImportedSymbolReferenceExpression(
-                decorator.expression
-              ) && decorator.expression.name === "Component"
-          )
-      );
-      console.log(
-        "getComponentNode.3",
-        node.decorators
-          .filter(isMetadataSymbolicCallExpression)
-          .filter(
-            (decorator) =>
-              isMetadataImportedSymbolReferenceExpression(
-                decorator.expression
-              ) && decorator.expression.name === "Component"
-          )
-          .filter(
-            (decorator) =>
-              decorator.arguments.length > 0 &&
-              decorator.arguments[0].hasOwnProperty("selector")
-          )
-      );
-    }
+    // if (
+    //   node.decorators
+    //     .filter(isMetadataSymbolicCallExpression)
+    //     .some((decorator) => (decorator.expression as any).name === "Component")
+    // ) {
+    //   console.log("getComponentNode.1", node);
+    //   console.log(
+    //     "getComponentNode.2",
+    //     node.decorators
+    //       .filter(isMetadataSymbolicCallExpression)
+    //       .filter(
+    //         (decorator) =>
+    //           isMetadataImportedSymbolReferenceExpression(
+    //             decorator.expression
+    //           ) && decorator.expression.name === "Component"
+    //       )
+    //   );
+    //   console.log(
+    //     "getComponentNode.3",
+    //     node.decorators
+    //       .filter(isMetadataSymbolicCallExpression)
+    //       .filter(
+    //         (decorator) =>
+    //           isMetadataImportedSymbolReferenceExpression(
+    //             decorator.expression
+    //           ) && decorator.expression.name === "Component"
+    //       )
+    //       .filter(
+    //         (decorator) =>
+    //           decorator.arguments.length > 0 &&
+    //           decorator.arguments[0].hasOwnProperty("selector")
+    //       )
+    //   );
+    // }
 
     return (
       node.decorators
@@ -118,7 +117,10 @@ export class ClrDocs {
           (decorator) =>
             decorator.arguments instanceof Array &&
             decorator.arguments.length > 0 &&
-            decorator.arguments[0].hasOwnProperty("selector")
+            Object.prototype.hasOwnProperty.call(
+              decorator.arguments[0],
+              "selector"
+            )
         )
     );
   }

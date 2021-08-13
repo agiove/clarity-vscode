@@ -1,5 +1,4 @@
 import {
-  CancellationToken,
   Hover,
   HoverProvider,
   MarkdownString,
@@ -27,7 +26,7 @@ export class ClrHoverProvider implements HoverProvider {
       return Promise.reject();
     }
 
-    return new Promise<MarkdownString>((resolve, _reject) => {
+    return new Promise<MarkdownString>((resolve) => {
       const definition: DefinitionInfo = this.docs.getDoc(word);
 
       const doc = new MarkdownString().appendCodeblock(definition.tag, "html");
@@ -52,8 +51,7 @@ export class ClrHoverProvider implements HoverProvider {
 
   public provideHover(
     document: TextDocument,
-    position: Position,
-    _token: CancellationToken
+    position: Position
   ): ProviderResult<Hover> {
     return this.getDefinition(document, position).then(
       (definitionInfo) => {
