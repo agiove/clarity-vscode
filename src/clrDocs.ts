@@ -60,7 +60,7 @@ export class ClrDocs {
     const [err, clrDescriptions] = await jsonc.safe.read(
       path.resolve(__dirname, "metadata.json")
     );
-    console.assert(err !== null, "Failed to load metadata.json");
+    console.assert(err === null, "Failed to load metadata.json");
     return clrDescriptions;
   }
 
