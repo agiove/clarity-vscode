@@ -49,12 +49,12 @@ export class ClrHoverProvider implements HoverProvider {
     }
 
     const word = document.getText(wordRange);
-    if (!this._docs.hasDoc(word)) {
+    if (!this._docs.hasDocumentation(word)) {
       return Promise.reject();
     }
 
     return new Promise<MarkdownString>((resolve) => {
-      const definition: DefinitionInfo = this._docs.getDoc(word);
+      const definition: DefinitionInfo = this._docs.getDocumentation(word);
       const markdown: MarkdownString = this.createMarkdown(definition);
       return resolve(markdown);
     });
