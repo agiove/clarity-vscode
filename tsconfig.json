@@ -6,13 +6,24 @@
     "lib": ["es6"],
     "sourceMap": true,
     "rootDir": "src",
-    "resolveJsonModule": true,
+    "resolveJsonModule": true, // Allow importing json files.
     "skipLibCheck": true, // Fixes https://github.com/angular/angular/issues/43097. Remove line once fixed.
-    "strict": true /* enable all strict type-checking options */
-    /* Additional Checks */
-    // "noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
-    // "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
-    // "noUnusedParameters": true,  /* Report errors on unused parameters. */
+    // Type Checking:
+    "strict": true, // Enable all strict type-checking options.
+    "allowUnreachableCode": false, // Report error about unreachable code.
+    "allowUnusedLabels": false, // Report error about unused labels.
+    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement.
+    "noImplicitAny": true, // Report error about using untyped variables.
+    "noImplicitOverride": true, // Report error when sub-class contains function that override is missing `override` keyword.
+    "noImplicitReturns": true, // Report error when not all code paths in function return a value.
+    "noImplicitThis": true, // Report error on `this` expressions with an implied `any` type.
+    "noPropertyAccessFromIndexSignature": true, // Report error when indexing into a type with no index signature.
+    "noUnusedLocals": true, // Report error when a variable is declared but not used.
+    "noUnusedParameters": true, // Report errors on unused parameters.
+    "strictBindCallApply": true, // Report error when the built-in methods of functions `call`, `bind`, and `apply` are not invoked with correct argument for the underlying function.
+    "strictFunctionTypes": true, // Report error when a function type is not assignable to its implementation.
+    "strictNullChecks": true, // Report error when a non-null assertion is used on a possibly null value.
+    "strictPropertyInitialization": true // Report error when a class property was declared but not set in the constructor.
   },
   "exclude": ["node_modules", ".vscode-test"]
 }

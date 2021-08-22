@@ -138,7 +138,7 @@ export class ClrDocs {
 
   private getTag(component: MetadataSymbolicCallExpression): string {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- safety-check done before.
-    return (component.arguments![0] as MetadataObject).selector as string;
+    return (component.arguments![0] as MetadataObject)["selector"] as string;
   }
 
   private getDecorators(
