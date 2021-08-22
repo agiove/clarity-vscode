@@ -1,12 +1,13 @@
 import {
-  ClassMetadata,
   isClassMetadata,
   isMetadataImportedSymbolReferenceExpression,
   isMetadataSymbolicCallExpression,
   MemberMetadata,
   MetadataEntry,
+  MetadataError,
   MetadataObject,
   MetadataSymbolicCallExpression,
+  MetadataSymbolicExpression,
 } from "@angular/compiler-cli";
 import * as clrMetadata from "@clr/angular/clr-angular.metadata.json";
 import { jsonc } from "jsonc";
@@ -30,16 +31,17 @@ export class ClrDocs {
       //console.log("1", node, isClassMetadata(node));
       if (
         !isClassMetadata(node) ||
-        //    !node.decorators ||
         !(node.decorators instanceof Array) ||
         node.decorators.length === 0
-      )
+      ) {
         return;
+      }
 
-      const component: MetadataSymbolicCallExpression = this.getComponentNode(
-        node as ClassMetadata
-      );
-      if (!component) return;
+      const component: MetadataSymbolicCallExpression | undefined =
+        this.getComponentNode(node.decorators);
+      if (component === undefined) {
+        return;
+      }
       //console.log("2", component);
 
       const tag: string = this.getTag(component);
@@ -67,8 +69,8 @@ export class ClrDocs {
   }
 
   private getComponentNode(
-    node: ClassMetadata
-  ): MetadataSymbolicCallExpression {
+    decorators: (MetadataSymbolicExpression | MetadataError)[]
+  ): MetadataSymbolicCallExpression | undefined {
     // if (
     //   node.decorators
     //     .filter(isMetadataSymbolicCallExpression)
@@ -105,8 +107,8 @@ export class ClrDocs {
     // }
 
     return (
-      node
-        .decorators! // Must be an `call` expression.
+      decorators
+        // Must be an `call` expression.
         .filter(isMetadataSymbolicCallExpression)
         // Only want `@Component` decorators.
         .filter(
@@ -123,11 +125,12 @@ export class ClrDocs {
               decorator.arguments[0],
               "selector"
             )
-        )!
+        )
     );
   }
 
   private getTag(component: MetadataSymbolicCallExpression): string {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- safety-check done before.
     return (component.arguments![0] as MetadataObject).selector as string;
   }
 
@@ -136,6 +139,7 @@ export class ClrDocs {
   }
 
   getDoc(tag: string): DefinitionInfo {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- safety-check done before.
     const definition: DefinitionInfo = this._definitions.get(tag)!;
     console.log(tag, definition);
 
@@ -144,38 +148,45 @@ export class ClrDocs {
     }
     definition.lazy = false;
 
-    const members = definition.meta.members!;
-    Object.keys(members).map((propertyName: string) => {
-      const member: Array<MemberMetadata> = members[propertyName];
-      // console.log("member", member);
+    const members = definition.meta.members;
+    if (members !== undefined) {
+      Object.keys(members).map((propertyName: string) => {
+        const member: Array<MemberMetadata> = members[propertyName];
+        // console.log("member", member);
 
-      const memberProperties = member
-        // Ignore constructors and methods.
-        .filter((member) => {
-          return (
-            member.__symbolic === "property" &&
-            member.decorators instanceof Array &&
-            member.decorators.length > 0
+        const memberProperties = member
+          // Ignore constructors and methods.
+          .filter((member) => {
+            return (
+              member.__symbolic === "property" &&
+              member.decorators instanceof Array &&
+              member.decorators.length > 0
+            );
+          });
+        console.log(memberProperties);
+        memberProperties.forEach((property) => {
+          const callExpressions: Array<MetadataSymbolicCallExpression> =
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- safety-check done before.
+            property
+              .decorators! // Must be an `call` expression.
+              .filter(isMetadataSymbolicCallExpression);
+          console.log(callExpressions);
+
+          const inputDecorators = this.getDecorators(callExpressions, "Input");
+          if (inputDecorators.length > 0) {
+            definition.inputs.push(...inputDecorators);
+          }
+
+          const outputDecorators = this.getDecorators(
+            callExpressions,
+            "Output"
           );
+          if (outputDecorators.length > 0) {
+            definition.outputs.push(...outputDecorators);
+          }
         });
-      console.log(memberProperties);
-      memberProperties.forEach((property) => {
-        const callExpressions: Array<MetadataSymbolicCallExpression> = property
-          .decorators! // Must be an `call` expression.
-          .filter(isMetadataSymbolicCallExpression);
-        console.log(callExpressions);
-
-        const inputDecorators = this.getDecorators(callExpressions, "Input");
-        if (inputDecorators.length > 0) {
-          definition.inputs.push(...inputDecorators);
-        }
-
-        const outputDecorators = this.getDecorators(callExpressions, "Output");
-        if (outputDecorators.length > 0) {
-          definition.outputs.push(...outputDecorators);
-        }
       });
-    });
+    }
 
     return definition;
   }
@@ -192,6 +203,7 @@ export class ClrDocs {
         decorator.arguments.length > 0
     );
     return inputDecorators.map(
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- safety-check done before.
       (decorator) => decorator.arguments![0] as string
     );
   }
