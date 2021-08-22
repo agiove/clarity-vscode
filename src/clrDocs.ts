@@ -11,7 +11,7 @@ import {
 import * as clrMetadata from "@clr/angular/clr-angular.metadata.json";
 import { jsonc } from "jsonc";
 import * as path from "path";
-import { DefinitionInfo } from "./shared/DefinitionInfo";
+import { DefinitionInfo } from "./definitionInfo";
 
 const baseUrl = "https://clarity.design/angular-components/";
 
@@ -24,7 +24,9 @@ export class ClrDocs {
     this._descriptions = await this.getClrDescriptions();
 
     Object.keys(clrMetadata.metadata).forEach((nodeName: string) => {
-      const node: MetadataEntry = clrMetadata.metadata[nodeName];
+      const key: keyof typeof clrMetadata.metadata =
+        nodeName as keyof typeof clrMetadata.metadata;
+      const node: MetadataEntry = clrMetadata.metadata[key];
       //console.log("1", node, isClassMetadata(node));
       if (
         !isClassMetadata(node) ||
@@ -56,7 +58,7 @@ export class ClrDocs {
     const [err, clrDescriptions] = await jsonc.safe.read(
       path.resolve(__dirname, "metadata.json")
     );
-    console.assert(err != null, "Failed to load metadata.json");
+    console.assert(err !== null, "Failed to load metadata.json");
     return clrDescriptions;
   }
 
@@ -103,8 +105,8 @@ export class ClrDocs {
     // }
 
     return (
-      node.decorators
-        // Must be an `call` expression.
+      node
+        .decorators! // Must be an `call` expression.
         .filter(isMetadataSymbolicCallExpression)
         // Only want `@Component` decorators.
         .filter(
@@ -121,12 +123,12 @@ export class ClrDocs {
               decorator.arguments[0],
               "selector"
             )
-        )
+        )!
     );
   }
 
   private getTag(component: MetadataSymbolicCallExpression): string {
-    return (component.arguments[0] as MetadataObject).selector as string;
+    return (component.arguments![0] as MetadataObject).selector as string;
   }
 
   hasDoc(tag: string): boolean {
@@ -134,13 +136,15 @@ export class ClrDocs {
   }
 
   getDoc(tag: string): DefinitionInfo {
-    const definition: DefinitionInfo = this._definitions.get(tag);
+    const definition: DefinitionInfo = this._definitions.get(tag)!;
     console.log(tag, definition);
 
-    if (!definition.lazy) return definition;
+    if (!definition.lazy) {
+      return definition;
+    }
     definition.lazy = false;
 
-    const members = definition.meta.members;
+    const members = definition.meta.members!;
     Object.keys(members).map((propertyName: string) => {
       const member: Array<MemberMetadata> = members[propertyName];
       // console.log("member", member);
@@ -156,10 +160,9 @@ export class ClrDocs {
         });
       console.log(memberProperties);
       memberProperties.forEach((property) => {
-        const callExpressions: Array<MetadataSymbolicCallExpression> =
-          property.decorators
-            // Must be an `call` expression.
-            .filter(isMetadataSymbolicCallExpression);
+        const callExpressions: Array<MetadataSymbolicCallExpression> = property
+          .decorators! // Must be an `call` expression.
+          .filter(isMetadataSymbolicCallExpression);
         console.log(callExpressions);
 
         const inputDecorators = this.getDecorators(callExpressions, "Input");
@@ -188,6 +191,8 @@ export class ClrDocs {
         decorator.arguments instanceof Array &&
         decorator.arguments.length > 0
     );
-    return inputDecorators.map((decorator) => decorator.arguments[0] as string);
+    return inputDecorators.map(
+      (decorator) => decorator.arguments![0] as string
+    );
   }
 }

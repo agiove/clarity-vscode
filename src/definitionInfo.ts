@@ -21,7 +21,7 @@ export class DefinitionInfo {
 
   private arr2str(arr: string[]): string {
     return arr.reduce((acc, current) => {
-      if (acc != "") acc += ", ";
+      if (acc !== "") acc += ", ";
       return acc + current;
     }, "");
   }

@@ -7,7 +7,7 @@ import {
   TextDocument,
 } from "vscode";
 import { ClrDocs } from "./clrDocs";
-import { DefinitionInfo } from "./shared/DefinitionInfo";
+import { DefinitionInfo } from "./definitionInfo";
 
 export class ClrHoverProvider implements HoverProvider {
   /**
