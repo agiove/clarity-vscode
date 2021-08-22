@@ -10,6 +10,10 @@
     "semi": "off",
     "@typescript-eslint/semi": "warn",
 
+    // Disallow unused variables.
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+
     "curly": "warn",
 
     "eqeqeq": "warn",
