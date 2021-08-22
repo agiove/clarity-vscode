@@ -8,6 +8,7 @@
     "rootDir": "src",
     "resolveJsonModule": true, // Allow importing json files.
     "skipLibCheck": true, // Fixes https://github.com/angular/angular/issues/43097. Remove line once fixed.
+    "forceConsistentCasingInFileNames": true, // Force consistent casing in file names.
     // Type Checking:
     "strict": true, // Enable all strict type-checking options.
     "allowUnreachableCode": false, // Report error about unreachable code.
