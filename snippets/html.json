@@ -1,217 +1,989 @@
 {
-  "Clarity vscode": [
-    {
-      "prefix": "clr-alert",
-      "body": [
-        "<clr-alert [clrAlertType]=\"'alert-${1:info|warning|success|danger}'\">",
-        "  <button type=\"button\" class=\"close\" aria-label=\"Close\">",
-        "    <clr-icon aria-hidden=\"true\" shape=\"close\"></clr-icon>",
-        "  </button>",
-        "  <div class=\"alert-item\">",
-        "    <span class=\"alert-text\">",
-        "      ${2:Alert message}",
-        "    </span>",
-        "  </div>",
-        "</clr-alert>"
-      ],
-      "description": "Clarity Alert"
-    },
+  "Clarity Angular Accordion": {
+    "prefix": "clr-accordion",
+    "body": [
+      "<clr-accordion>",
+      "  <clr-accordion-panel>",
+      "    <clr-accordion-title>${2:Title}</clr-accordion-title>",
+      "    <clr-accordion-content *clrIfExpanded>$0</clr-accordion-content>",
+      "  </clr-accordion-panel>",
+      "</clr-accordion>"
+    ],
+    "description": "An accordion is a collection of vertically stacked sections with multiple content areas which may be expanded or minimized by the user to reveal their content."
+  },
 
-    {
-      "prefix": "clr-button-group",
-      "body": [
-        "<clr-button-group class=\"btn-primary\">",
-        "  <clr-button>${1:Button1}</clr-button>",
-        "  <clr-button>${2:Button2}</clr-button>",
-        "  <clr-button [clrInMenu]=\"true\">${3:OverflowButton1}</clr-button>",
-        "  <clr-button [clrInMenu]=\"true\">${4:OverflowButton2}</clr-button>",
-        "  <clr-button [clrInMenu]=\"true\">${5:OverflowButton3}</clr-button>",
-        "</clr-button-group>"
-      ],
-      "description": "Clarity Button Group"
-    },
+  "Clarity Angular Alert": {
+    "prefix": "clr-alert",
+    "body": [
+      "<clr-alert [clrAlertType]=\"'${1|info,warning,success,danger|}'\" [clrAlertClosable]=\"true\">",
+      "  <clr-alert-item>",
+      "    <div class=\"alert-text\">",
+      "      $0",
+      "    </div>",
+      "  </clr-alert-item>",
+      "</clr-alert>"
+    ],
+    "description": "Alerts are banners that draw the user's attention to an important message. Elements of an alert, such as icons and color, indicate the type and urgency of the message's information."
+  },
+  "Clarity Core Alert": {
+    "prefix": "cds-alert",
+    "body": [
+      "<cds-alert status=\"${1|neutral,info,success,warning,danger,alt,loading|}\" closable>",
+      "  $0",
+      "</cds-alert>"
+    ],
+    "description": "Alerts are banners that draw the user's attention to an important message. Elements of an alert, such as icons and color, indicate the type and urgency of the message's information."
+  },
 
-    {
-      "prefix": "clr-card",
-      "body": [
-        "<div class=\"card\">",
-        "  <div class=\"card-block\">",
-        "    <h3 class=\"card-title\">${1:Title}</h3>",
-        "    <p class=\"card-text\">",
-        "      ${2:Content}",
-        "    </p>",
-        "  </div>",
-        "  <div class=\"card-footer\">",
-        "    <a href=\"#\" class=\"btn btn-sm btn-link\">${3:Action}</a>",
-        "  </div>",
-        "</div>"
-      ],
-      "description": "Clarity Card"
-    },
+  "Clarity Angular Badge": {
+    "prefix": "clr-badge",
+    "body": [
+      "<span class=\"badge badge-${1|info,success,warning,danger,1,2,3,4,5,purple,blue,orange,light-blue|}\">${2:99+}</span>"
+    ],
+    "description": "Badges are status modifiers to other elements which display the numerical value within an element either next to it or inside the element itself."
+  },
+  "Clarity Core Badge": {
+    "prefix": "cds-badge",
+    "body": [
+      "<cds-badge status=\"${1|neutral,info,success,warning,danger|}\" color=\"${2|default,gray,purple,blue,orange,light-blue|}\">${3:99+}<span cds-layout=\"display:screen-reader-only\"> ${4:items in an informational badge.}</span></cds-badge>"
+    ],
+    "description": "Badges are status modifiers to other elements which display the numerical value within an element either next to it or inside the element itself."
+  },
 
-    {
-      "prefix": "clr-datagrid",
-      "body": [
-        "<clr-datagrid>",
-        "  <clr-dg-column [clrDgField]=\"'${1:col1Prop}'\">${2:Col1Name}</clr-dg-column>",
-        "  <clr-dg-column [clrDgField]=\"'${3:col2Prop}'\">${4:Col2Name}</clr-dg-column>",
-        "  <clr-dg-column [clrDgField]=\"'${5:col3Prop}'\">${6:Col3Name}</clr-dg-column>",
-        "  <clr-dg-column [clrDgField]=\"'${7:col4Prop}'\">${8:Col4Name}</clr-dg-column>",
-        "",
-        "  <clr-dg-row *clrDgItems=\"let ${9:item} of ${10:items}\">",
-        "    <clr-dg-cell>{{${9:item}.${1:col1Prop}}}</clr-dg-cell>",
-        "    <clr-dg-cell>{{${9:item}.${3:col2Prop}}}</clr-dg-cell>",
-        "    <clr-dg-cell>{{${9:item}.${5:col3Prop}}}</clr-dg-cell>",
-        "    <clr-dg-cell>{{${9:item}.${7:col4Prop}}}</clr-dg-cell>",
-        "  </clr-dg-row>",
-        "",
-        "  <clr-dg-footer>{{${10:items}.length}} ${11:items}</clr-dg-footer>",
-        "</clr-datagrid>"
-      ],
-      "description": "Clarity Datagrid"
-    },
+  "Clarity Angular Button": {
+    "prefix": "clr-button",
+    "body": [
+      "<button class=\"btn btn-${1|primary,success,warning,danger,outline,success-outline,info-outline,warning-outline,danger-outline,link|}\">${0:Ok}</button>"
+    ],
+    "description": "Buttons allow an application to communicate action and direct user intent."
+  },
+  "Clarity Core Button": {
+    "prefix": "cds-button",
+    "body": [
+      "<cds-button status=\"${1|primary,success,warning,danger,neutral|}\" action=\"${2|solid,outline,flat,flat-inline|}\">${0:Ok}</cds-button>"
+    ],
+    "description": "Buttons allow an application to communicate action and direct user intent."
+  },
 
-    {
-      "prefix": "clr-dropdown",
-      "body": [
-        "<clr-dropdown [clrMenuPosition]=\"'bottom-left'\">",
-        "  <button class=\"btn btn-outline-primary\" clrDropdownToggle>",
-        "    ${1:Button title}",
-        "    <clr-icon shape=\"caret down\"></clr-icon>",
-        "  </button>",
-        "  <div class=\"dropdown-menu\">",
-        "    <label class=\"dropdown-header\">${2:Dropdown header}</label>",
-        "    <a href=\"#\" clrDropdownItem>${3:Action 1}</a>",
-        "    <a href=\"#\" clrDropdownItem>${4:Action 2}</a>",
-        "    <div class=\"dropdown-divider\"></div>",
-        "    <a href=\"#\" clrDropdownItem>${5:Action 3}</a>",
-        "    <a href=\"#\" clrDropdownItem>${6:Action 4}</a>",
-        "  </div>",
-        "</clr-dropdown>"
-      ],
-      "description": "Clarity Dropdown"
-    },
+  "Clarity Angular Button Group": {
+    "prefix": "clr-button-group",
+    "body": [
+      "<clr-button-group class=\"btn-primary\">",
+      "  <clr-button>${1:Create}</clr-button>",
+      "  <clr-button [clrInMenu]=\"true\">${0:Delete}</clr-button>",
+      "</clr-button-group>"
+    ],
+    "description": "Button groups are for creating collections of similar type action buttons."
+  },
 
-    {
-      "prefix": "clr-form",
-      "body": [
-        "<form>",
-        "  <section class=\"form-block\">",
-        "    <label>${1:Section title}</label>",
-        "    ${3}",
-        "    <button type=\"submit\" class=\"btn btn-primary\">${2:Button}</button>",
-        "    <button class=\"btn btn-secondary\">Cancel</button>",
-        "  </section>",
-        "</form>"
-      ],
-      "description": "Clarity Form"
-    },
+  "Clarity Angular Card": {
+    "prefix": "clr-card",
+    "body": [
+      "<div class=\"card\">",
+      "  <div class=\"card-header\">",
+      "    ${1:Header}",
+      "  </div>",
+      "  <div class=\"card-block\">",
+      "    <div class=\"card-title\">",
+      "      ${2:Title}",
+      "    </div>",
+      "    <div class=\"card-text\">",
+      "      $0",
+      "    </div>",
+      "  </div>",
+      "  <div class=\"card-footer\">",
+      "    <button class=\"btn btn-sm btn-link\">${3:Action}</button>",
+      "  </div>",
+      "</div>"
+    ],
+    "description": "Cards are used to apply a container around a related grouping of information."
+  },
 
-    {
-      "prefix": "clr-login-form",
-      "body": [
-        "<div class=\"login-wrapper\">",
-        "  <form class=\"login\">",
-        "    <label class=\"title\">",
-        "      ${1:Company Name<span class=\"trademark\">&#8482;</span>}",
-        "      ${2:Product Name&#174;}",
-        "    </label>",
-        "    <div class=\"login-group\">",
-        "      <div class=\"auth-source select\">",
-        "        <select id=\"login-auth-source-1\">",
-        "          <option>Local Users</option>",
-        "          <option>Administrator</option>",
-        "        </select>",
-        "      </div>",
-        "      <input class=\"username\" type=\"text\" id=\"login_username\" placeholder=\"Username\">",
-        "      <input class=\"password\" type=\"password\" id=\"login_password\" placeholder=\"Password\">",
-        "      <div class=\"checkbox\">",
-        "        <input type=\"checkbox\" id=\"rememberme\">",
-        "        <label for=\"rememberme\">",
-        "          Remember me",
-        "        </label>",
-        "      </div>",
-        "      <button type=\"submit\" class=\"btn btn-primary\">LOG IN</button>",
-        "      <a href=\"#\" class=\"signup\">Sign up for an account</a>",
-        "    </div>",
-        "  </form>",
-        "</div>"
-      ],
-      "description": "Clarity Login Form"
-    },
+  "Clarity Angular Checkbox": {
+    "prefix": "clr-checkbox",
+    "body": [
+      "<clr-checkbox-container>",
+      "  <label>${1:Label}</label>",
+      "  <clr-checkbox-wrapper>",
+      "    <input type=\"checkbox\" clrCheckbox formControlName=\"$2\" name=\"$2\" required />",
+      "    <label>${3:$2}</label>",
+      "  </clr-checkbox-wrapper>",
+      "  <clr-control-helper>Helper text</clr-control-helper>",
+      "  <clr-control-error>$1 is required!</clr-control-error>",
+      "</clr-checkbox-container>"
+    ],
+    "description": "With checkboxes, users can select one or more options from a list of options."
+  },
+  "Clarity Core Checkbox": {
+    "prefix": "cds-checkbox",
+    "body": [
+      "<cds-checkbox-group layout=\"horizontal\">",
+      "  <label>${1:Label}</label>",
+      "  <cds-checkbox>",
+      "    <label>${2:Option 1}</label>",
+      "    <input type=\"checkbox\" name=\"${3:$2}\" />",
+      "  </cds-checkbox>",
+      "  <cds-control-message status=\"${4|neutral,error,success|}\">${5:Message text}</cds-control-message>",
+      "</cds-checkbox-group>"
+    ],
+    "description": "A checkbox is a form element comprising a series of items that make a list of options that allow the user to select any number of choices. Those choices can range from zero, one or several. The selections are not mutually exclusive."
+  },
 
-    {
-      "prefix": "clr-modal",
-      "body": [
-        "<clr-modal [(clrModalOpen)]=\"${1:opened}\">",
-        "  <h3 class=\"modal-title\">${2:Title}</h3>",
-        "  <div class=\"modal-body\">",
-        "    ${3}",
-        "  </div>",
-        "  <div class=\"modal-footer\">",
-        "    <button type=\"button\" class=\"btn btn-outline\" (click)=\"${1:opened} = false\">Cancel</button>",
-        "    <button type=\"button\" class=\"btn btn-primary\" (click)=\"${1:opened} = false\">Ok</button>",
-        "  </div>",
-        "</clr-modal>"
-      ],
-      "description": "Clarity Modal"
-    },
+  "Clarity Angular Combobox": {
+    "prefix": "clr-combobox",
+    "body": [
+      "<clr-combobox-container>",
+      "  <label>${1:Label}</label>",
+      "  <clr-combobox formControlName=\"$2\" name=\"$2\">",
+      "    <clr-options>",
+      "      <clr-option *ngFor=\"let ${4:item} of ${3:items}\" clrValue=\"${4:item}\">${4:item}</clr-option>",
+      "    </clr-options>",
+      "  </clr-combobox>",
+      "</clr-combobox-container>"
+    ],
+    "description": "A combobox is a complex element, which can be considered as a combination of two elements - a dropdown list and a text input. The text input is used for quick search and filtering of the predefined options from the dropdown list."
+  },
 
-    {
-      "prefix": "clr-stack-view",
-      "body": [
-        "<clr-stack-view>",
-        "  <clr-stack-header>${1:Stack Title}</clr-stack-header>",
-        "",
-        "  <clr-stack-block>",
-        "    <clr-stack-label>Label 1</clr-stack-label>",
-        "    <clr-stack-content>Content 1</clr-stack-content>",
-        "  </clr-stack-block>",
-        "",
-        "  <clr-stack-block [clrSbExpanded]=\"true\">",
-        "    <clr-stack-label>Label 2</clr-stack-label>",
-        "    <clr-stack-content>Content 2</clr-stack-content>",
-        "    <clr-stack-block>",
-        "      <clr-stack-label>Sub-label 1</clr-stack-label>",
-        "      <clr-stack-content>Sub-content 1</clr-stack-content>",
-        "    </clr-stack-block>",
-        "    <clr-stack-block>",
-        "      <clr-stack-label>Sub-label 2</clr-stack-label>",
-        "      <clr-stack-content>Sub-content 2</clr-stack-content>",
-        "    </clr-stack-block>",
-        "    <clr-stack-block>",
-        "      <clr-stack-label>Sub-label 3</clr-stack-label>",
-        "      <clr-stack-content>Sub-content 3</clr-stack-content>",
-        "    </clr-stack-block>",
-        "  </clr-stack-block>",
-        "",
-        "</clr-stack-view>"
-      ],
-      "description": "Clarity Stack view"
-    },
+  "Clarity Core Control": {
+    "prefix": "cds-control",
+    "body": [
+      "<cds-control status=\"${2|neutral,error,success|}\" control-width=\"${3|stretch,shrink|}\">",
+      "  <label>${1:Label}</label>",
+      "  $0",
+      "  <cds-control-message status=\"$2\">${4:Message text}</cds-control-message>",
+      "</cds-control>"
+    ],
+    "description": "The Control component provides a way to leverage the same Clarity Form layout(s) and behaviors and integrate a custom or third party input control."
+  },
 
-    {
-      "prefix": "clr-tabs",
-      "body": [
-        "<clr-tabs (clrTabsCurrentTabLinkChanged)=\"onTabSelected(\\$event)\"",
-        "          (clrTabsCurrentTabIndexChanged)=\"onTabIndexChanged(\\$event)\"",
-        "          (clrTabsCurrentTabContentChanged)=\"onTabContentActivated(\\$event)\">",
-        "  <clr-tab-link [clrTabLinkId]=\"'link1'\" [clrTabLinkActive]=\"true\">${1:Title1}</clr-tab-link>",
-        "  <clr-tab-link [clrTabLinkId]=\"'link2'\">${2:Title2}</clr-tab-link>",
-        "  <clr-tab-link [clrTabLinkId]=\"'link3'\">${3:Title3}</clr-tab-link>",
-        "",
-        "  <clr-tab-content [clrTabContentId]=\"'content1'\" [clrTabContentActive]=\"true\">",
-        "    ${4:Content1}",
-        "  </clr-tab-content>",
-        "  <clr-tab-content [clrTabContentId]=\"'content2'\">",
-        "    ${5:Content2}",
-        "  </clr-tab-content>",
-        "  <clr-tab-content [clrTabContentId]=\"'content3'\">",
-        "    ${6:Content3}",
-        "  </clr-tab-content>",
-        "</clr-tabs>"
-      ],
-      "description": "Clarity Tabs"
-    }
-  ]
+  "Clarity Angular Datagrid": {
+    "prefix": "clr-datagrid",
+    "body": [
+      "<clr-datagrid>",
+      "  <clr-dg-column [clrDgField]=\"'${1:property1}'\">${2:ID}</clr-dg-column>",
+      "  <clr-dg-column [clrDgField]=\"'${3:property2}'\">${4:Column name}</clr-dg-column>",
+      "  <clr-dg-column [clrDgField]=\"'${5:property3}'\">${6:Column name}</clr-dg-column>",
+      "",
+      "  <clr-dg-row *clrDgItems=\"let ${8:item} of ${7:items}\">",
+      "    <clr-dg-cell>{{${8:item}.${1:property1}}}</clr-dg-cell>",
+      "    <clr-dg-cell>{{${8:item}.${3:property2}}}</clr-dg-cell>",
+      "    <clr-dg-cell>{{${8:item}.${5:property3}}}</clr-dg-cell>",
+      "  </clr-dg-row>",
+      "",
+      "  <clr-dg-footer>{{${7:items}.length}} ${9:$7}</clr-dg-footer>",
+      "</clr-datagrid>"
+    ],
+    "description": "A datagrid is a presentation of data in a table which enables the user to perform actions upon the entries which are organized in rows, with columns for each attribute."
+  },
+
+  "Clarity Angular Datalist": {
+    "prefix": "clr-datalist",
+    "body": [
+      "<clr-datalist-container>",
+      "  <label>${1:Label}</label>",
+      "  <input clrDatalistInput placeholder=\"Enter $1\" $0/>",
+      "  <datalist>",
+      "    <option *ngFor=\"let ${3:item} of ${2:items}\" [value]=\"${3:item}\">",
+      "  </datalist>",
+      "</clr-datalist-container>"
+    ],
+    "description": "The datalist element offers a flexible input when users need to filter and select from a large list of pre-defined options. Or, they need to input a custom value (not provided in the pre-defined list) for the input."
+  },
+  "Clarity Core Datalist": {
+    "prefix": "cds-datalist",
+    "body": [
+      "<cds-datalist>",
+      "  <label>${1:Label}</label>",
+      "  <input type=\"text\" placeholder=\"Enter $1\" $0/>",
+      "  <datalist>",
+      "    <option *ngFor=\"let ${3:item} of ${2:items}\" [value]=\"${3:item}\">",
+      "  </datalist>",
+      "</cds-datalist> "
+    ],
+    "description": "Datalist is a type of list that becomes contextualized through the selection of extensive pre-defined options. Datalists can contain a custom input value."
+  },
+
+  "Clarity Angular Date Picker": {
+    "prefix": "clr-date",
+    "body": [
+      "<clr-date-container>",
+      "  <label>${1:Date}</label>",
+      "  <input type=\"date\" clrDate formControlName=\"$2\" name=\"$2\" $0/>",
+      "</clr-date-container>"
+    ],
+    "description": "Date Picker is a popover control for picking a date value for a date input. It's also sometimes referred to as Datepicker."
+  },
+
+  "Clarity Angular Dropdown": {
+    "prefix": "clr-dropdown",
+    "body": [
+      "<clr-dropdown>",
+      "  <button class=\"btn btn-primary\" clrDropdownTrigger>",
+      "    ${1:Label}",
+      "    <cds-icon shape=\"caret\" direction=\"down\"></cds-icon>",
+      "  </button>",
+      "  <clr-dropdown-menu clrPosition=\"${2|bottom-left,top-left,top-right,right-top,right-bottom,bottom-right,left-bottom,left-top|}\" *clrIfOpen>",
+      "    <label class=\"dropdown-header\" aria-hidden=\"true\">${3:Dropdown header}</label>",
+      "    <div aria-label=\"Dropdown header ${5:$4}\" [clrDisabled]=\"${6|false,true|}\" clrDropdownItem>${4:Action}</div>",
+      "    <div class=\"dropdown-divider\" role=\"separator\" aria-hidden=\"true\"></div>",
+      "    <clr-dropdown>",
+      "      <button clrDropdownTrigger>Sub-menu</button>",
+      "      <clr-dropdown-menu>",
+      "        <button clrDropdownItem>Action</button>",
+      "      </clr-dropdown-menu>",
+      "    </clr-dropdown>$0",
+      "  </clr-dropdown-menu>",
+      "</clr-dropdown>"
+    ],
+    "description": "A dropdown menu is a contextual list that allows the user to choose an option that take an immediate action or navigate the user to another view. The source of the dropdown is usually a button."
+  },
+
+  "Clarity Angular Form": {
+    "prefix": "clr-form",
+    "body": [
+      "<form clrForm clrLayout=\"${1|horizontal,vertical,compact|}\" [formGroup]=\"${2:form}\">",
+      "  $0",
+      "  <button class=\"btn btn-primary\" type=\"submit\">${3:Submit}</button>",
+      "  <button class=\"btn btn-secondary\">${4:Cancel}</button>",
+      "</form>"
+    ],
+    "description": "Forms are a grouping of input controls that allow a user to submit information to your application."
+  },
+  "Clarity Core Form": {
+    "prefix": "cds-form",
+    "body": [
+      "<form>",
+      "  <cds-form-group layout=\"${1|horizontal,horizontal-inline,vertical,vertical-inline,compact|}\">",
+      "    $0",
+      "    <cds-button type=\"submit\">${2:Submit}</cds-button>",
+      "  </cds-form-group>",
+      "</form>"
+    ],
+    "description": "Forms are input controls and groups of input controls manage the collection and submission of data from your user to the application."
+  },
+
+  "Clarity Core Form Group": {
+    "prefix": "cds-form-group",
+    "body": [
+      "<cds-form-group layout=\"${1|horizontal,horizontal-inline,vertical,vertical-inline,compact|}\">",
+      "  $0",
+      "  <cds-button type=\"submit\">${2:Submit}</cds-button>",
+      "</cds-form-group>"
+    ],
+    "description": "Form groups provides a way to organize forms and make them more understandable for users. Users can focus on smaller groups instead of the whole form all at once."
+  },
+
+  "Clarity Angular Grid": {
+    "prefix": "clr-grid",
+    "body": [
+      "<div class=\"clr-row\">",
+      "  <div class=\"clr-col-4\">",
+      "    <span>$0</span>",
+      "  </div>",
+      "  <div class=\"clr-col-6\">",
+      "    <span></span>",
+      "  </div>",
+      "  <div class=\"clr-col-2\">",
+      "    <span></span>",
+      "  </div>",
+      "</div>"
+    ],
+    "description": "A grid provides a structure of rows and columns for aligning content. Grids are useful because they help create a familiar and easily navigable structure for content."
+  },
+
+  "Clarity Angular Header": {
+    "prefix": "clr-header",
+    "body": [
+      "<header class=\"header-6\">",
+      "  <div class=\"branding\">",
+      "    <a href=\"javascript://\" class=\"nav-link\">",
+      "      <cds-icon shape=\"vm-bug\"></cds-icon>",
+      "      <span class=\"title\">${1:Project}</span>",
+      "    </a>",
+      "  </div>",
+      "  <div class=\"header-nav\">",
+      "    <a href=\"javascript://\" class=\"active nav-link nav-text\">${2:Dashboard}</a>",
+      "    $0",
+      "  </div>",
+      "  <form class=\"search\">",
+      "    <label>",
+      "      <input type=\"text\" placeholder=\"Search for keywords...\" />",
+      "    </label>",
+      "  </form>",
+      "  <div class=\"header-actions\">",
+      "    <a href=\"javascript://\" class=\"nav-link nav-icon\" aria-label=\"Settings\">",
+      "      <cds-icon shape=\"cog\"></cds-icon>",
+      "    </a>",
+      "  </div>",
+      "</header>"
+    ],
+    "description": "Headers provide branding, navigation, search, and access to global application actions such as settings and notifications."
+  },
+
+  "Clarity Core Icon Button": {
+    "prefix": "cds-icon-button",
+    "body": [
+      "<cds-icon-button status=\"${1|primary,success,warning,danger,neutral|}\" action=\"${2|solid,outline,flat,flat-inline|}\">",
+      "  <cds-icon shape=\"user\"></cds-icon>",
+      "</cds-icon-button>"
+    ],
+    "description": "Icon buttons are useful where interface space may be limited. If an icon represents the action well, users can sometimes recognize them quicker than reading text. Using icon buttons can also help when space constraints prevent the use of long labels."
+  },
+
+  "Clarity Core Inline Button": {
+    "prefix": "cds-inline-button",
+    "body": ["<cds-inline-button>$0</cds-inline-button>"],
+    "description": "Inline buttons are used inside and alongside textual content within Clarity components. Inline buttons give action buttons a less prominent, yet familiar, visual presence. Use them with caution, however, because they can be easily confused with links."
+  },
+
+  "Clarity Angular Input": {
+    "prefix": "clr-input",
+    "body": [
+      "<clr-input-container>",
+      "  <label>${1:Label}</label>",
+      "  <input clrInput formControlName=\"$2\" name=\"$2\" placeholder=\"Enter ${2:$1}\" required />",
+      "  <clr-control-helper>Helper text.</clr-control-helper>",
+      "  <clr-control-error>$1 is required!</clr-control-error>",
+      "</clr-input-container>"
+    ],
+    "description": "Inputs enable the user to input text information."
+  },
+  "Clarity Core Input": {
+    "prefix": "cds-input",
+    "body": [
+      "<cds-input layout=\"${3|horizontal,vertical,compact|}\" control-width=\"${4|stretch,shrink|}\">",
+      "  <label>${1:Label}</label>",
+      "  <input type=\"text\" name=\"${2:$1}\" placeholder=\"Enter $1\" required />",
+      "  <cds-control-message status=\"${5|neutral,error,success|}\">${6:Message text}</cds-control-message>",
+      "</cds-input>"
+    ],
+    "description": "Inputs enable the user to input text information."
+  },
+
+  "Clarity Core Input Group": {
+    "prefix": "cds-input-group",
+    "body": [
+      "<cds-input-group layout=\"vertical\">",
+      "  <label>Price</label>",
+      "  <cds-input>",
+      "    <label>Price</label>",
+      "    <input placeholder=\"100.00\" type=\"number\" value=\"1987.56\" />",
+      "    <cds-control-action action=\"prefix\" readonly>$</cds-control-action>",
+      "  </cds-input>",
+      "  <cds-select cds-layout=\"align:shrink\">",
+      "    <label>Currency</label>",
+      "    <select>",
+      "      <option>USD</option>",
+      "      <option>EUR</option>",
+      "    </select>",
+      "  </cds-select>",
+      "  <cds-control-message>Price is required!</cds-control-message>",
+      "</cds-input-group>"
+    ],
+    "description": "An input-group combines closely related input controls into a single visual control."
+  },
+
+  "Clarity Core Input Prefix/Suffix": {
+    "prefix": "cds-input-prefix-suffix",
+    "body": [
+      "<cds-input>",
+      "  <label>prefix + suffix</label>",
+      "  <input aria-label=\"url input with https:// prefix and .com suffix\" />",
+      "  <cds-control-action action=\"prefix\" readonly>https://</cds-control-action>",
+      "  <cds-control-action action=\"suffix\" readonly>.com</cds-control-action>",
+      "</cds-input>"
+    ],
+    "description": "An input-group combines closely related input controls into a single visual control."
+  },
+
+  "Clarity Angular Label": {
+    "prefix": "clr-label",
+    "body": [
+      "<span class=\"label label-${1|info,success,warning,danger,purple,blue,orange,light-blue|}\">$0</span>"
+    ],
+    "description": "Labels show concise metadata in a compact format."
+  },
+
+  "Clarity Angular List": {
+    "prefix": "clr-list",
+    "body": ["<${1|ul,ol|} class=\"list\">", "  <li>$0</li>", "</$1>"],
+    "description": "Lists are for showing a set of items in sequence, and can be nested to show some hierarchy."
+  },
+  "Clarity Core List": {
+    "prefix": "cds-list",
+    "body": ["<${1|ul,ol|} cds-list>", "  <li>$0</li>", "</$1>"],
+    "description": "Lists are for showing a set of items in sequence and can be nested to show hierarchy."
+  },
+
+  "Clarity Angular Login": {
+    "prefix": "clr-login",
+    "body": [
+      "<div class=\"login-wrapper\">",
+      "  <form class=\"login\">",
+      "    <section class=\"title\">",
+      "      <h3 class=\"welcome\">Welcome to</h3>",
+      "      Company Product Name",
+      "      <h5 class=\"hint\">Use your Company ID to sign in or create one now</h5>",
+      "    </section>",
+      "    <div class=\"login-group\">",
+      "      <clr-select-container>",
+      "        <label class=\"clr-sr-only\">User Role</label>",
+      "        <select clrSelect name=\"type\" [(ngModel)]=\"form.type\">",
+      "          <option value=\"local\">Local Users</option>",
+      "          <option value=\"admin\">Administrator</option>",
+      "        </select>",
+      "      </clr-select-container>",
+      "      <clr-input-container>",
+      "        <label class=\"clr-sr-only\">Username</label>",
+      "        <input type=\"text\" name=\"username\" clrInput placeholder=\"Username\" [(ngModel)]=\"form.username\" />",
+      "      </clr-input-container>",
+      "      <clr-password-container>",
+      "        <label class=\"clr-sr-only\">Password</label>",
+      "        <input type=\"password\" name=\"password\" clrPassword placeholder=\"Password\" [(ngModel)]=\"form.password\" />",
+      "      </clr-password-container>",
+      "      <clr-checkbox-wrapper>",
+      "        <label>Remember me</label>",
+      "        <input type=\"checkbox\" name=\"rememberMe\" clrCheckbox [(ngModel)]=\"form.rememberMe\" />",
+      "      </clr-checkbox-wrapper>",
+      "      <div class=\"error active\">",
+      "        Invalid user name or password",
+      "      </div>",
+      "      <button type=\"submit\" class=\"btn btn-primary\">NEXT</button>",
+      "      <a href=\"javascript://\" class=\"signup\">Sign up for a Company ID</a>",
+      "    </div>",
+      "  </form>",
+      "</div>"
+    ],
+    "description": "A predefined form for applications that require authentication as part of the login experience."
+  },
+
+  "Clarity Angular Modal": {
+    "prefix": "clr-modal",
+    "body": [
+      "<clr-modal [(clrModalOpen)]=\"this.${1:openModal}\" clrModalSize=\"${2|,sm,lg,xl|}\">",
+      "  <h3 class=\"modal-title\">${3:Title}</h3>",
+      "  <div class=\"modal-body\">",
+      "    <p>$0</p>",
+      "  </div>",
+      "  <div class=\"modal-footer\">",
+      "    <button type=\"button\" class=\"btn btn-outline\" (click)=\"this.$1 = false\">${4:Cancel}</button>",
+      "    <button type=\"button\" class=\"btn btn-primary\" (click)=\"this.$1 = false\">${5:Ok}</button>",
+      "  </div>",
+      "</clr-modal>"
+    ],
+    "description": "Modals are dialogues which provide information or help a user complete a task. They require the user to take an action to dismiss them."
+  },
+  "Clarity Core Modal": {
+    "prefix": "cds-modal",
+    "body": [
+      "<cds-modal size=\"${1|default,sm,lg,xl|}\">",
+      "  <cds-modal-header>",
+      "    <h3 cds-text=\"title\" cds-first-focus tabindex=\"-1\">${2:Title}</h3>",
+      "  </cds-modal-header>",
+      "  <cds-modal-content>",
+      "    <p cds-text=\"body\">$0</p>",
+      "  </cds-modal-content>",
+      "  <cds-modal-actions>",
+      "    <cds-button action=\"outline\">${3:Cancel}</cds-button>",
+      "    <cds-button>${4:Ok}</cds-button>",
+      "  </cds-modal-actions>",
+      "</cds-modal>"
+    ],
+    "description": "Modals inform users about a task and can contain decisive information that requires immediate attention."
+  },
+
+  "Clarity Angular Password": {
+    "prefix": "clr-password",
+    "body": [
+      "<clr-password-container>",
+      "  <label>${1:Password}</label>",
+      "  <input clrPassword formControlName=\"${2:password}\" name=\"$2\" placeholder=\"$1\" required minlength=\"10\" />",
+      "  <clr-control-helper>Must contain at least 10 characters.</clr-control-helper>",
+      "  <clr-control-error *clrIfError=\"'required'\">$1 is required!</clr-control-error>",
+      "  <clr-control-error *clrIfError=\"'minlength'\">It must be at least 10 characters!</clr-control-error>",
+      "</clr-password-container>"
+    ],
+    "description": "Password fields are a specialized input field with the ability to toggle between the masked field or to view the password in plain text."
+  },
+  "Clarity Core Password": {
+    "prefix": "cds-password",
+    "body": [
+      "<cds-password control-width=\"${3|stretch,shrink|}\">",
+      "  <label>${1:Password}</label>",
+      "  <input type=\"password\" placeholder=\"$1\" required minlength=\"10\" />",
+      "  <cds-control-message status=\"${4|neutral,error,success|}\">${5:Message text}</cds-control-message>",
+      "</cds-password>"
+    ],
+    "description": "The password field is a specialized input field with the ability to toggle between the masked field or to view the password in plain text."
+  },
+
+  "Clarity Angular Progress Bar": {
+    "prefix": "clr-progress-bar",
+    "body": [
+      "<clr-progress-bar clrValue=\"$0\" clrLabeled=\"${1|null,true,false,html string|}\"></clr-progress-bar>"
+    ],
+    "description": "A progress bar is a linear indicator for providing feedback about an ongoing, user-initiated process."
+  },
+
+  "Clarity Angular Radio": {
+    "prefix": "clr-radio",
+    "body": [
+      "<clr-radio-container>",
+      "  <label>${1:Label}</label>",
+      "  <clr-radio-wrapper>",
+      "    <input type=\"radio\" clrRadio formControlName=\"$2\" name=\"$2\" required />",
+      "    <label>${3:$2}</label>",
+      "  </clr-radio-wrapper>",
+      "  $0",
+      "  <clr-control-helper>Helper text</clr-control-helper>",
+      "  <clr-control-error>$1 is required!</clr-control-error>",
+      "</clr-radio-container>"
+    ],
+    "description": "Using radio buttons, users can select one option from a group of options."
+  },
+  "Clarity Core Radio": {
+    "prefix": "cds-radio",
+    "body": [
+      "<cds-radio-group layout=\"horizontal\">",
+      "  <label>${1:Label}</label>",
+      "  <cds-radio>",
+      "    <label>${2:Option 1}</label>",
+      "    <input type=\"radio\" name=\"${3:$2}\" />",
+      "  </cds-radio>",
+      "  $0",
+      "  <cds-control-message status=\"${4|neutral,error,success|}\">${5:Message text}</cds-control-message>",
+      "</cds-radio-group>"
+    ],
+    "description": "The radio button is a form element comprising a series of items that make a list of options that allow the user to select options that are mutually exclusive of each other. Users may only select a single radio button within a series of items that make a list."
+  },
+
+  "Clarity Angular Range": {
+    "prefix": "clr-range",
+    "body": [
+      "<clr-range-container>",
+      "  <label>${1:Label}</label>",
+      "  <clr-range-wrapper>",
+      "    <input type=\"range\" clrRange formControlName=\"$2\" name=\"$2\" required />",
+      "    <label>${3:$2}</label>",
+      "  </clr-range-wrapper>",
+      "  $0",
+      "  <clr-control-helper>Helper text</clr-control-helper>",
+      "  <clr-control-error>$1 is required!</clr-control-error>",
+      "</clr-range-container>"
+    ],
+    "description": "The HTML5 range input element is used when a user can choose between a min and a max value but the precise value chosen is not considered important."
+  },
+  "Clarity Core Range": {
+    "prefix": "cds-range",
+    "body": [
+      "<cds-range layout=\"horizontal\">",
+      "  <label>${1:Label}</label>",
+      "  <input type=\"range\" name=\"${2:$1}\" />",
+      "  <cds-control-message status=\"${3|neutral,error,success|}\">${3:Message text}</cds-control-message>",
+      "</cds-range>"
+    ],
+    "description": "The range input component consists of a slider enabling a choice between a minimum and a maximum value. It allows the user to select a value when the precise value chosen is not considered necessary."
+  },
+
+  "Clarity Angular Select": {
+    "prefix": "clr-select",
+    "body": [
+      "<clr-select-container>",
+      "  <label>${1:Label}</label>",
+      "  <select clrSelect formControlName=\"$2\" name=\"$2\" required>",
+      "    <option *ngFor=\"let ${4:item} of ${3:items}\" [value]=\"$4.${5:value}\">{{$4.${6:name}}}</option>",
+      "  </select>",
+      "  <clr-control-helper>Helper text</clr-control-helper>",
+      "  <clr-control-error>$1 is required!</clr-control-error>",
+      "</clr-select-container>"
+    ],
+    "description": "With a select box, users can select one item from a list of values. The selected item is visible when the select box is closed."
+  },
+  "Clarity Core Select": {
+    "prefix": "cds-select",
+    "body": [
+      "<cds-select layout=\"horizontal\">",
+      "  <label>${1:Label}</label>",
+      "  <select name=\"${2:$1}\">",
+      "    <option *ngFor=\"let ${4:item} of ${3:items}\" [value]=\"$4.${5:value}\">{{$4.${6:name}}}</option>",
+      "  </select>",
+      "  <cds-control-message status=\"${7|neutral,error,success|}\">${8:Message text}</cds-control-message>",
+      "</cds-select>"
+    ],
+    "description": "A select box is a form element that surfaces a drop down list with a set of choices and displays the users selection when complete."
+  },
+
+  "Clarity Angular Sidenav": {
+    "prefix": "clr-sidenav",
+    "body": [
+      "<div class=\"main-container\">",
+      "  <header class=\"header header-6\">",
+      "    $0",
+      "  </header>",
+      "  <div class=\"content-container\">",
+      "    <nav class=\"sidenav\">",
+      "      <section class=\"sidenav-content\">",
+      "        <a href=\"javascript:void(0)\" class=\"nav-link active\">",
+      "          Nav Element 1",
+      "        </a>",
+      "        <a href=\"javascript:void(0)\" class=\"nav-link\">",
+      "          Nav Element 2",
+      "        </a>",
+      "        <section class=\"nav-group collapsible\">",
+      "          <input id=\"tabexample1\" type=\"checkbox\" />",
+      "          <label for=\"tabexample1\">Collapsible Nav Element</label>",
+      "          <ul class=\"nav-list\">",
+      "            <li><a class=\"nav-link\">Link 1</a></li>",
+      "            <li><a class=\"nav-link\">Link 2</a></li>",
+      "          </ul>",
+      "        </section>",
+      "        <section class=\"nav-group\">",
+      "          <input id=\"tabexample2\" type=\"checkbox\" />",
+      "          <label for=\"tabexample2\">Default Nav Element</label>",
+      "          <ul class=\"nav-list\">",
+      "            <li><a class=\"nav-link\">Link 1</a></li>",
+      "            <li><a class=\"nav-link\">Link 2</a></li>",
+      "            <li><a class=\"nav-link active\">Link 3</a></li>",
+      "            <li><a class=\"nav-link\">Link 4</a></li>",
+      "            <li><a class=\"nav-link\">Link 5</a></li>",
+      "            <li><a class=\"nav-link\">Link 6</a></li>",
+      "          </ul>",
+      "        </section>",
+      "      </section>",
+      "    </nav>",
+      "    <div class=\"content-area\">",
+      "      ...",
+      "    </div>",
+      "  </div>",
+      "</div>"
+    ],
+    "description": "The sidenav is a left-aligned navigational component."
+  },
+
+  "Clarity Angular Signpost": {
+    "prefix": "clr-signpost",
+    "body": [
+      "<clr-signpost>",
+      "  <clr-signpost-content clrPosition=\"${1|right-middle,top-left,top-middle,top-right,right-top,right-bottom,bottom-right,bottom-middle,bottom-left,left-bottom,left-middle,left-top|}\" *clrIfOpen>",
+      "    <h3>${2:Information}</h3>",
+      "    <p>$0</p>",
+      "  </clr-signpost-content>",
+      "</clr-signpost>"
+    ],
+    "description": "The signpost is a convenient, lightweight way to show contextual help of information without taking the user out of the current context."
+  },
+
+  "Clarity Angular Spinner": {
+    "prefix": "clr-spinner",
+    "body": [
+      "<clr-spinner [clrInline]=\"${1|false,true|}\">${2:Loading...}</clr-spinner>"
+    ],
+    "description": "A spinner is visual indicator of an ongoing, user-initiated process."
+  },
+
+  "Clarity Angular Stack View": {
+    "prefix": "clr-stack-view",
+    "body": [
+      "<clr-stack-view>",
+      "  <clr-stack-header>",
+      "    ${1:Title}",
+      "    <button class=\"stack-action btn btn-sm btn-link\" (click)=\"this.editModal = true\" type=\"button\">${2:Edit}</button>",
+      "  </clr-stack-header>",
+      "",
+      "  <clr-stack-block",
+      "    *ngFor=\"let ${4:block} of this.${3:blocks}; let i = index\"",
+      "    [clrStackViewLevel]=\"1\"",
+      "    [clrStackViewSetsize]=\"this.$3.length\"",
+      "    [clrStackViewPosinset]=\"i\"",
+      "  >",
+      "    <clr-stack-label>{{$4.title}}</clr-stack-label>",
+      "    <clr-stack-content>{{$4.content}}</clr-stack-content>",
+      "",
+      "    <clr-stack-block",
+      "      *ngFor=\"let child of $4.children; let j = index\"",
+      "      [clrStackViewLevel]=\"2\"",
+      "      [clrStackViewSetsize]=\"$4.children.length\"",
+      "      [clrStackViewPosinset]=\"j\"",
+      "    >",
+      "      <clr-stack-label>{{child.title}}</clr-stack-label>",
+      "      <clr-stack-content>{{child.content}}</clr-stack-content>",
+      "    </clr-stack-block>",
+      "  </clr-stack-block>",
+      "</clr-stack-view>",
+      "",
+      "<clr-modal [(clrModalOpen)]=\"this.editModal\">",
+      "  <h3 class=\"modal-title\">${5:$2}</h3>",
+      "  <div class=\"modal-body\">",
+      "    <clr-stack-view>",
+      "      <clr-stack-block",
+      "        *ngFor=\"let $4 of this.$3; let $4Index = index\"",
+      "        [clrSbNotifyChange]=\"$4.content!=='Content '+ ($4Index)\"",
+      "        [clrStackViewLevel]=\"1\"",
+      "        [clrStackViewSetsize]=\"this.$3.length\"",
+      "        [clrStackViewPosinset]=\"$4Index + 1\"",
+      "      >",
+      "        <clr-stack-label>{{$4.title}}</clr-stack-label>",
+      "        <clr-stack-content>",
+      "          <input type=\"text\" [(ngModel)]=\"$4.content\" class=\"clr-input\" />",
+      "        </clr-stack-content>",
+      "",
+      "        <clr-stack-block",
+      "          *ngFor=\"let child of $4.children; let $4ChildIndex = index\"",
+      "          [clrSbNotifyChange]=\"child.content!=='Sub-content '+ ($4ChildIndex)\"",
+      "          [clrStackViewLevel]=\"2\"",
+      "          [clrStackViewSetsize]=\"$4.children.length\"",
+      "          [clrStackViewPosinset]=\"$4ChildIndex + 1\"",
+      "        >",
+      "          <clr-stack-label>{{child.title}}</clr-stack-label>",
+      "          <clr-stack-content>",
+      "            <input type=\"text\" [(ngModel)]=\"child.content\" class=\"clr-input\" />",
+      "          </clr-stack-content>",
+      "        </clr-stack-block>",
+      "      </clr-stack-block>",
+      "    </clr-stack-view>",
+      "  </div>",
+      "  <div class=\"modal-footer\">",
+      "    <button type=\"button\" class=\"btn btn-primary\" (click)=\"this.editModal = false\">${6:Done}</button>",
+      "  </div>",
+      "</clr-modal>"
+    ],
+    "description": "A stack view displays key/value pairs, which users can expand to show more detail."
+  },
+
+  "Clarity Angular Stepper": {
+    "prefix": "clr-stepper",
+    "body": [
+      "<clr-stepper-panel formGroupName=\"$1\">",
+      "  <clr-step-title>${2:Title}</clr-step-title>",
+      "  <clr-step-description>${3:Optional description}</clr-step-description>",
+      "  <clr-step-content *clrIfExpanded>",
+      "    $0",
+      "    <button clrStepButton=\"${4|next,submit|}\">${5:${4:/capitalize}}</button>",
+      "  </clr-step-content>",
+      "</clr-stepper-panel>"
+    ],
+    "description": "A stepper structures multi-step processes into 2 or more expanding panels that break up complex workflows."
+  },
+
+  "Clarity Angular Tab": {
+    "prefix": "clr-tabs",
+    "body": [
+      "<clr-tabs clrLayout=\"${1|horizontal,vertical|}\">",
+      "  <clr-tab>",
+      "    <button clrTabLink>${2:Title}</button>",
+      "    <clr-tab-content *clrIfActive>",
+      "      ${3:Content}",
+      "    </clr-tab-content>",
+      "  </clr-tab>",
+      "  <clr-tab>",
+      "    <button clrTabLink [clrTabLinkInOverflow]=\"true\">${4:Title}</button>",
+      "    <clr-tab-content *clrIfActive=\"true\">",
+      "      ${5:Content}",
+      "    </clr-tab-content>",
+      "  </clr-tab>$0",
+      "</clr-tabs>"
+    ],
+    "description": "Tabs divide content into separate views which users navigate between."
+  },
+
+  "Clarity Angular Table": {
+    "prefix": "clr-table",
+    "body": [
+      "<table class=\"table ${1|,table-noborder,table-compact,table-vertical|}\">",
+      "  <caption>",
+      "    ${2:Caption}",
+      "  </caption>",
+      "  <thead>",
+      "    <tr>",
+      "      <th class=\"left\">$0Wizard</th>",
+      "      <th>Allegiance</th>",
+      "      <th>Triwizard Champion?</th>",
+      "      <th>Can Cast Fireball</th>",
+      "    </tr>",
+      "  </thead>",
+      "  <tbody>",
+      "    <tr>",
+      "      <td class=\"left\">Harry</td>",
+      "      <td>Gryffindor</td>",
+      "      <td>Yes</td>",
+      "      <td>No</td>",
+      "    </tr>",
+      "    <tr>",
+      "      <td class=\"left\">Gandalf</td>",
+      "      <td>Hobbits</td>",
+      "      <td>Maybe?</td>",
+      "      <td>I don&apos;t think so...</td>",
+      "    </tr>",
+      "    <tr>",
+      "      <td class=\"left\">Obi-Wan Kenobi</td>",
+      "      <td>Republic/Rebellion</td>",
+      "      <td>No</td>",
+      "      <td>No</td>",
+      "    </tr>",
+      "  </tbody>",
+      "</table>"
+    ],
+    "description": "A table displays information in a grid of rows and columns providing a method of organizing information in way that facilitates comparisons to discover patterns and insights."
+  },
+
+  "Clarity Core Tag": {
+    "prefix": "cds-tag",
+    "body": [
+      "<cds-tag readonly status=\"${1|neutral,info,success,warning,danger|}\" color=\"${2|default,gray,purple,blue,orange,light-blue|}\"${3: closable}${4: disabled}>$0</span>"
+    ],
+    "description": "Tags show concise metadata in a compact format."
+  },
+
+  "Clarity Angular Textarea": {
+    "prefix": "clr-textarea",
+    "body": [
+      "<clr-textarea-container>",
+      "  <label>${1:Label}</label>",
+      "  <textarea clrTextarea formControlName=\"$2\" name=\"$2\" placeholder=\"$1\"></textarea>",
+      "</clr-textarea-container>"
+    ],
+    "description": "Textareas are a popular form control for long form text input, and Clarity supports both a CSS only and Angular component. You may wish to review the general forms documentation about form controls."
+  },
+  "Clarity Core Textarea": {
+    "prefix": "cds-textarea",
+    "body": [
+      "<cds-textarea layout=\"${2|horizontal,vertical,compact|}\" status=\"${3|neutral,error,success|}\" control-width=\"${4|stretch,shrink|}\">",
+      "  <label>${1:Label}</label>",
+      "  <textarea></textarea>",
+      "</cds-textarea>"
+    ],
+    "description": "The textareas provide a form control for long form text input. When anticipating user inputs of a sentence or less, use an input. Multiple usages of an input strung together may constitute a form. See forms for more details."
+  },
+
+  "Clarity Angular Timeline": {
+    "prefix": "clr-timeline",
+    "body": [
+      "<clr-timeline>",
+      "  <clr-timeline-step [clrState]=\"'${1|not-started,current,processing,success,error|}'\">",
+      "    <clr-timeline-step-header>${2:Header}</clr-timeline-step-header>",
+      "    <clr-timeline-step-title>${3:Title}</clr-timeline-step-title>",
+      "    <clr-timeline-step-description>${4:Description}</clr-timeline-step-description>",
+      "  </clr-timeline-step>",
+      "  $0",
+      "</clr-timeline>"
+    ],
+    "description": "A timeline displays a series of events which can guide the user through processes or pre-defined steps while also showing current progress."
+  },
+
+  "Clarity Angular Toggle": {
+    "prefix": "clr-toggle",
+    "body": [
+      "<clr-toggle-container>",
+      "  <label>${1:Label}</label>",
+      "  <clr-toggle-wrapper>",
+      "    <input type=\"checkbox\" clrToggle formControlName=\"$2\" name=\"$2\" required />",
+      "    <label>${3:$2}</label>",
+      "  </clr-toggle-wrapper>",
+      "  <clr-control-helper>Helper text</clr-control-helper>",
+      "  <clr-control-error>$1 is required!</clr-control-error>",
+      "</clr-toggle-container>"
+    ],
+    "description": "Toggle switches allow the selection of on or off state."
+  },
+  "Clarity Core Toggle": {
+    "prefix": "cds-toggle",
+    "body": [
+      "<cds-toggle-group layout=\"horizontal\">",
+      "  <label>${1:Label}</label>",
+      "  <cds-toggle>",
+      "    <label>${2:Option 1}</label>",
+      "    <input type=\"checkbox\" name=\"${3:$2}\" />",
+      "  </cds-toggle>",
+      "  <cds-control-message status=\"${4|neutral,error,success|}\">${5:Message text}</cds-control-message>",
+      "</cds-toggle-group>"
+    ],
+    "description": "Toggle switches are the digital equivalent of a physical on/off switch. They ask the user to choose between two and mutually exclusive options while always having a default value."
+  },
+
+  "Clarity Angular Tooltip": {
+    "prefix": "clr-tooltip",
+    "body": [
+      "<clr-tooltip>",
+      "  <cds-icon shape=\"help\" clrTooltipTrigger></cds-icon>",
+      "  <clr-tooltip-content *clrIfOpen clrPosition=\"${1|right,top-right,top-left,bottom-right,bottom-left,right,left|}\" clrSize=\"${2|sm,xs,md,lg|}\">",
+      "    $0",
+      "  </clr-tooltip-content>",
+      "</clr-tooltip>"
+    ],
+    "description": "A tooltip is a momentary dialogue which surfaces from an info icon and provides additional information pertaining to the corresponding UI element."
+  },
+
+  "Clarity Angular Tree View": {
+    "prefix": "clr-tree",
+    "body": [
+      "<clr-tree>",
+      "  <clr-tree-node [clrExpanded]=\"true\">",
+      "    Permissions",
+      "    <clr-tree-node *ngFor=\"let permission of permissions\" [clrExpanded]=\"true\">",
+      "      {{permission.type}}",
+      "      <clr-tree-node",
+      "        *ngFor=\"let right of permission.rights\"",
+      "        [clrSelected]=\"right.enable\"",
+      "        (clrSelectedChange)=\"right.enable = !!$event\"",
+      "      >",
+      "        {{right.name}}",
+      "      </clr-tree-node>",
+      "    </clr-tree-node>",
+      "  </clr-tree-node>",
+      "</clr-tree>"
+    ],
+    "description": "A tree is a hierarchical component that gives users access to a hierarchical set of objects displayed in a the parent-child relationship."
+  },
+
+  "Clarity Angular Vertical Nav": {
+    "prefix": "clr-vertical-nav",
+    "body": [
+      "<clr-vertical-nav [clrVerticalNavCollapsible]=\"true\">",
+      "  <a clrVerticalNavLink routerLinkActive=\"active\" routerLink=\"./\">",
+      "    <cds-icon shape=\"home\" clrVerticalNavIcon></cds-icon>",
+      "    Home",
+      "  </a>",
+      "  <div class=\"nav-divider\"></div>",
+      "  <clr-vertical-nav-group routerLinkActive=\"active\">",
+      "    <cds-icon shape=\"file-group\" clrVerticalNavIcon></cds-icon>",
+      "    Group",
+      "    <clr-vertical-nav-group-children>",
+      "      <a clrVerticalNavLink routerLink=\"./parent/child\" routerLinkActive=\"active\">Child</a>",
+      "      $0",
+      "    </clr-vertical-nav-group-children>",
+      "  </clr-vertical-nav-group>",
+      "</clr-vertical-nav>"
+    ],
+    "description": "A vertically-aligned list of the destinations in an application."
+  },
+
+  "Clarity Angular Wizard": {
+    "prefix": "clr-wizard",
+    "body": [
+      "<clr-wizard [(clrWizardOpen)]=\"this.wizardOpen\" clrWizardSize=\"${1|xl,md,lg|}\">",
+      "  <clr-wizard-title>${2:Title}</clr-wizard-title>",
+      "",
+      "  <clr-wizard-button [type]=\"'cancel'\">Cancel</clr-wizard-button>",
+      "  <clr-wizard-button [type]=\"'previous'\">Back</clr-wizard-button>",
+      "  <clr-wizard-button [type]=\"'next'\">Next</clr-wizard-button>",
+      "  <clr-wizard-button [type]=\"'finish'\">Finish</clr-wizard-button>",
+      "",
+      "  <clr-wizard-page>",
+      "    <ng-template clrPageTitle>${3:Page 1}</ng-template>",
+      "    $0",
+      "  </clr-wizard-page>",
+      "",
+      "  <clr-wizard-page>",
+      "    <ng-template clrPageTitle>Page 2</ng-template>",
+      "    Content for page 2",
+      "  </clr-wizard-page>",
+      "",
+      "  <clr-wizard-page>",
+      "    <ng-template clrPageTitle>Page 3</ng-template>",
+      "    Content for page 3",
+      "  </clr-wizard-page>",
+      "</clr-wizard>"
+    ],
+    "description": "A wizard provides an interface for a user to proceed through a sequence of steps required to complete a task."
+  }
 }
