@@ -460,7 +460,7 @@
   "Clarity Angular Modal": {
     "prefix": "clr-modal",
     "body": [
-      "<clr-modal [(clrModalOpen)]=\"this.${1:openModal}\" clrModalSize=\"${2|,sm,lg,xl|}\">",
+      "<clr-modal [(clrModalOpen)]=\"this.${1:openModal}\" clrModalSize=\"${2|sm,lg,xl|}\">",
       "  <h3 class=\"modal-title\">${3:Title}</h3>",
       "  <div class=\"modal-body\">",
       "    <p>$0</p>",
@@ -789,7 +789,7 @@
   "Clarity Angular Table": {
     "prefix": "clr-table",
     "body": [
-      "<table class=\"table ${1|,table-noborder,table-compact,table-vertical|}\">",
+      "<table class=\"table ${1|table-noborder,table-compact,table-vertical|}\">",
       "  <caption>",
       "    ${2:Caption}",
       "  </caption>",
