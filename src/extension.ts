@@ -1,11 +1,9 @@
-import * as vscode from "vscode";
+import { ExtensionContext, languages } from "vscode";
 import { ClrHoverProvider } from "./clrHoverProvider";
 
-export async function activate(
-  context: vscode.ExtensionContext
-): Promise<void> {
+export async function activate(context: ExtensionContext): Promise<void> {
   context.subscriptions.push(
-    vscode.languages.registerHoverProvider("html", new ClrHoverProvider())
+    languages.registerHoverProvider("html", new ClrHoverProvider())
   );
 }
 
