@@ -16,8 +16,6 @@ import * as _clrDescriptions from "./metadata.json";
 
 const clrDescriptions = _clrDescriptions as ClrDescriptionsType;
 
-const baseUrl = "https://clarity.design/angular-components/";
-
 export class ClrDocs {
   private _definitions: Map<string, DefinitionInfo> = new Map();
 
@@ -99,10 +97,11 @@ export class ClrDocs {
 
     const tag: string = this.getTag(component);
     const info: string = this.getClrDescription(tag);
+    const link: string = this.getDocumentationLink(tag);
 
     this._definitions.set(
       tag,
-      new DefinitionInfo(`<${tag}>`, info, baseUrl + tag, entry)
+      new DefinitionInfo(`<${tag}>`, info, link, entry)
     );
   }
 
@@ -156,5 +155,10 @@ export class ClrDocs {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- safety-check done before.
       (decorator) => decorator.arguments![0] as string
     );
+  }
+
+  private getDocumentationLink(tag: string): string {
+    const tagPage = tag.replace(/^clr-/, "");
+    return `https://clarity.design/angular-components/${tagPage}`;
   }
 }

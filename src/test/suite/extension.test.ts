@@ -38,7 +38,7 @@ Input: _clrDgLoading, clrDgSelected, clrDgSingleSelected, clrDgRowSelection_
 
 Output: _clrDgRefresh, clrDgSelectedChange, clrDgSingleSelectedChange_
 
-https://clarity.design/angular-components/clr-datagrid`;
+https://clarity.design/angular-components/datagrid`;
 
     const value = getHoverValue(hoverProvider);
 
