@@ -1,15 +1,47 @@
-import * as assert from 'assert';
+import * as assert from "assert";
+import { beforeEach } from "mocha";
+import * as path from "path";
+import * as vscode from "vscode";
+import { activateExtension, getHoverValue, hover } from "./test-helpers";
 
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
-import * as vscode from 'vscode';
-// import * as myExtension from '../../extension';
+const workspace = path.join(
+  __dirname,
+  "..",
+  "..",
+  "..",
+  "src",
+  "test",
+  "suite"
+);
 
-suite('Extension Test Suite', () => {
-	vscode.window.showInformationMessage('Start all tests.');
+suite("Extension Test Suite", () => {
+  let document: vscode.TextDocument;
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
-	});
+  beforeEach(async () => {
+    await activateExtension();
+
+    const filePath = path.join(workspace, "fixtures", "test.html");
+    document = await vscode.workspace.openTextDocument(filePath);
+    await vscode.window.showTextDocument(document);
+  });
+
+  test("hover value from clr-datagrid", async () => {
+    const hoverProvider = await hover(document.uri);
+
+    const answer = `
+\`\`\`html
+<clr-datagrid>
+\`\`\`
+A datagrid is a presentation of data in a table which enables the user to perform actions upon the entries which are organized in rows, with columns for each attribute.
+
+Input: _clrDgLoading, clrDgSelected, clrDgSingleSelected, clrDgRowSelection_
+
+Output: _clrDgRefresh, clrDgSelectedChange, clrDgSingleSelectedChange_
+
+https://clarity.design/angular-components/clr-datagrid`;
+
+    const value = getHoverValue(hoverProvider);
+
+    assert.strictEqual(value, answer);
+  });
 });
