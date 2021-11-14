@@ -9,7 +9,9 @@ import {
   MetadataSymbolicCallExpression,
   MetadataSymbolicExpression,
 } from "@angular/compiler-cli";
+
 import * as clrMetadata from "@clr/angular/clr-angular.metadata.json";
+
 import { ClrDescriptionsType } from "./clrDescriptionsType";
 import { DefinitionInfo } from "./definitionInfo";
 import * as _clrDescriptions from "./metadata.json";
@@ -106,6 +108,9 @@ export class ClrDocs {
   }
 
   private getClrDescription(tag: string): string {
+    if (clrDescriptions[tag] === undefined) {
+      console.debug(`No description found for ${tag}`);
+    }
     return clrDescriptions[tag] || "";
   }
 
