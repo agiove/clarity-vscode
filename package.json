@@ -46,7 +46,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "test": "node ./out/test/runTest.js",
-    "lint": "eslint src --ext ts"
+    "lint": "cspell \"**\" --gitignore && eslint src --ext ts"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^12.2.13",
@@ -58,6 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vscode/test-electron": "^1.6.2",
+    "cspell": "^5.13.0",
     "eslint": "^8.2.0",
     "glob": "^7.2.0",
     "mocha": "^9.1.3",

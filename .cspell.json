@@ -1,0 +1,21 @@
+// cSpell Settings
+{
+  "version": "0.2",
+  "language": "en",
+  "dictionaries": ["en_US", "typescript", "node", "softwareTerms", "clarity"],
+  "words": [
+    "agiove",
+    "apos",
+    "Gryffindor",
+    "Kenobi",
+    "minlength",
+    "noborder",
+    "Posinset",
+    "Setsize",
+    "tabindex",
+    "Triwizard"
+  ],
+  "dictionaryDefinitions": [
+    { "name": "clarity", "path": "./clarity-words.txt" }
+  ]
+}
