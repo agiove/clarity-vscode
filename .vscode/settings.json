@@ -9,5 +9,5 @@
   // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
   "typescript.tsc.autoDetect": "off",
   // Whitelist of spelling words.
-  "cSpell.words": ["Datagrids", "datagrid"]
+  "cSpell.words": ["agiove", "datagrid", "Datagrids", "vmware"]
 }
