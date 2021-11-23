@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the "clarity-vscode" extension will be documented in this file.
+All notable changes to the `clarity-vscode` extension will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -13,10 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Upgraded intellisense for Clarity Angular.
-- Upgraded snippets for Clarity Angular & Clarity Design System.
+- Upgrade hover support for Clarity Design System & Clarity Angular.
+- Upgrade snippets for Clarity Design System & Clarity Angular.
 - Upgrade dependencies to latest versions.
-- Upgrade package to latest development process.
+- Upgrade whole package to latest development process.
 
 ### Fixed
 

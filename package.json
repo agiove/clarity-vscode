@@ -1,13 +1,13 @@
 {
   "name": "clarity-vscode",
+  "displayName": "Clarity language support",
+  "description": "Programmatic language features for Clarity Design System & Clarity Angular - https://clarity.design",
   "version": "1.3.0",
   "publisher": "agiove",
   "engines": {
     "vscode": "^1.0.0"
   },
   "license": "MIT",
-  "displayName": "Clarity template support",
-  "description": "Template support for the Project Clarity - https://clarity.design",
   "categories": [
     "Snippets",
     "Programming Languages"
