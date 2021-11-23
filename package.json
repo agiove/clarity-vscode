@@ -2,7 +2,7 @@
   "name": "clarity-vscode",
   "displayName": "Clarity language support",
   "description": "Programmatic language features for Clarity Design System & Clarity Angular - https://clarity.design",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "publisher": "agiove",
   "engines": {
     "vscode": "^1.0.0"
