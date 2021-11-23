@@ -5,8 +5,10 @@
 ## Features
 
 - HTML template snippets.
-- Hover information support for HTML template tags with input and output attributes.
+- Hover information support for HTML template tags with input and output attributes. ¹
 - For both Clarity Design System & Clarity Angular.
+
+<small>¹ Hover information for Clarity Design System is provided by [Custom Elements Manifest](https://github.com/webcomponents/custom-elements-manifest).</small>
 
 ### Snippets
 
