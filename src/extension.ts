@@ -1,7 +1,4 @@
-import {
-  ExtensionContext,
-  languages,
-} from "vscode";
+import { ExtensionContext, languages } from "vscode";
 
 import { ClrHoverProvider } from "./clrHoverProvider";
 
