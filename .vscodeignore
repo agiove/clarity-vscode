@@ -1,12 +1,13 @@
 .vscode/**
 .vscode-test/**
 out/test/**
-
 src/**
+
+.cspell.json
+.eslintrc.json
 .gitignore
 .yarnrc
-vsc-extension-quickstart.md
-**/tsconfig.json
-**/.eslintrc.json
 **/*.map
 **/*.ts
+clarity-words.txt
+tsconfig.json
