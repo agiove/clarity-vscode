@@ -9,9 +9,7 @@ import {
   MetadataSymbolicCallExpression,
   MetadataSymbolicExpression,
 } from "@angular/compiler-cli";
-
 import * as clrMetadata from "@clr/angular/clr-angular.metadata.json";
-
 import { ClrDescriptionsType } from "./clrDescriptionsType";
 import { DefinitionInfo } from "./definitionInfo";
 import * as _clrDescriptions from "./metadata.json";

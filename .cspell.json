@@ -2,20 +2,33 @@
 {
   "version": "0.2",
   "language": "en",
-  "dictionaries": ["en_US", "typescript", "node", "softwareTerms", "clarity"],
+  "dictionaries": [
+    "en_US",
+    "typescript",
+    "node",
+    "softwareTerms",
+    "clarity"
+  ],
   "words": [
     "agiove",
     "apos",
+    "esbuild",
     "Gryffindor",
     "Kenobi",
     "minlength",
     "noborder",
+    "outdir",
+    "outfile",
     "Posinset",
     "Setsize",
     "tabindex",
-    "Triwizard"
+    "Triwizard",
+    "vsix"
   ],
   "dictionaryDefinitions": [
-    { "name": "clarity", "path": "./clarity-words.txt" }
+    {
+      "name": "clarity",
+      "path": "./clarity-words.txt"
+    }
   ]
 }
