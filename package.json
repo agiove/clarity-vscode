@@ -41,15 +41,15 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run clean && npm run esbuild -- --minify",
-    "esbuild": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
-    "clean": "rimraf out *.vsix",
-    "build": "npm run clean && npm run esbuild -- --sourcemap",
-    "watch": "npm run clean && npm run esbuild -- --sourcemap --watch",
-    "test": "npm run clean && npm run lint && tsc -p ./ && node ./out/test/runTest.js",
+    "build": "npm run build:clean && npm run build:esbuild -- --sourcemap",
+    "build:clean": "rimraf out *.vsix",
+    "build:esbuild": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "watch": "npm run build:clean && npm run build:esbuild -- --sourcemap --watch",
+    "test": "npm run build:clean && npm run lint && tsc -p ./ && node ./out/test/runTest.js",
     "lint": "run-s lint:*",
     "lint:cspell": "cspell \"**\" --gitignore",
-    "lint:eslint": "eslint --ext .ts -f checklist src/"
+    "lint:eslint": "eslint --ext .ts -f checklist src/",
+    "vscode:prepublish": "npm run build:clean && npm run build:esbuild -- --minify",
   },
   "devDependencies": {
     "@angular/compiler-cli": "^12.2.13",
